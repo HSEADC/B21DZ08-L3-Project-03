@@ -17,7 +17,7 @@ end
 
 100.times do
   post = Post.create(post_name: create_sentence, description: create_sentence)
-  puts "Pin with id #{pin.id} just created"
+  puts "Post with id #{post.id} just created"
 end
 def reset_db
   Rake::Task['db:drop'].invoke
@@ -32,10 +32,11 @@ def create_profiles(quantity)
 end
 def create_profile
     profile = profile.create(nick_name: "Profile #{100..999}.to_a.sample")
-    puts "Profile with id #{profile.profile_id} and nickname: #{profile.nick_name} has been just created"
+    puts "Profile with id #{profile.id} and nickname: #{profile.nick_name} has been just created"
 end
 def create_posts
-    post = post.create(post_)
+    post = post.create(post.id)
+    puts "Post with id #{post.id} has been created"
 end
 
 seed
