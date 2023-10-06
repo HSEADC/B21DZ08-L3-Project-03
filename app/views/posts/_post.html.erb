@@ -1,26 +1,25 @@
-<div id="<%= dom_id post %>">
+<div class="post" id="<%= dom_id post %>">
   <p>
-    <strong>Post:</strong>
+    <strong>Пост:</strong>
     <%= post.post_id %>
   </p>
 
   <p>
-    <strong>Post name:</strong>
+    <strong>Заголовок:</strong>
     <%= post.post_name %>
   </p>
 
   <p>
-    <strong>Pic:</strong>
-    <%= post.pic %>
+    <%= image_tag post.pic.url, width: 300 %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>Описание:</strong>
     <%= post.description %>
   </p>
 
   <p>
-    <strong>Link:</strong>
+    <strong>Ссылка:</strong>
     <%= post.link %>
   </p>
 

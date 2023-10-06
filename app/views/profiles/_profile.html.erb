@@ -1,26 +1,25 @@
-<div id="<%= dom_id profile %>">
+<div class="profile" id="<%= dom_id profile %>">
+  <%# <p> %>
+    <%# <strong>Id:</strong> %>
+    <%# <%= profile.id  %>
+  <%# </p> %>
+
   <p>
-    <strong>Id:</strong>
-    <%= profile.id %>
+    <%= image_tag profile.profile_pic.url, width: 100 %>
   </p>
 
   <p>
-    <strong>Profile pic:</strong>
-    <%= profile.profile_pic %>
-  </p>
-
-  <p>
-    <strong>Nick name:</strong>
+    <strong>Никнейм:</strong>
     <%= profile.nick_name %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>Описание:</strong>
     <%= profile.description %>
   </p>
 
   <p>
-    <strong>Location:</strong>
+    <strong>Местонахождение:</strong>
     <%= profile.location %>
   </p>
 
