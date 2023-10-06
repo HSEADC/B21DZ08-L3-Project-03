@@ -21,8 +21,10 @@ end
 end
 profiles = Profile.all
 profiles.each do |profile|
+    (2..8).to_a.sample.times do
     post = Post.create(profile_id: profile.id, post_name: create_sentence)
-    puts post "Post with id #{post.id} for profile with id #{post.profile.id}just created"
+    puts "Post with id #{post.id} for profile with id #{post.profile.id}just created"
+    end
 end
 # def reset_db
 #   Rake::Task['db:drop'].invoke

@@ -2,6 +2,8 @@
 
 <%= render @profile %>
 
+<h2> Посты </h2>
+<%= render @profile.posts %>
 <div>
   <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
   <%= link_to "Back to profiles", profiles_path %>
