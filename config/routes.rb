@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :profiles
   resources :users
+  get 'welcome/index'
+  get 'welcome/about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "profiles#index"
+  root "welcome#index"
 end
