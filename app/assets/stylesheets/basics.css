@@ -1,0 +1,32 @@
+h1, h2, p, a {
+    color: rgb(255, 255, 241);
+    font-family: Helvetica;
+}
+.profileCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+    padding: 40px;
+    border-radius: 24px;
+    background-color: #6342F5;
+}
+body{
+    width: 100%;
+    max-width: 100%;
+    background-color: #111111;
+}
+nav{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40% 0
+}
+nav > a{
+    color: #6342F5;
+    width: 100px;
+    text-decoration: none;
+}
