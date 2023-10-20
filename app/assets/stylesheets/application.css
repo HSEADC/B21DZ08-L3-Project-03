@@ -5,16 +5,22 @@ body {
 
 .profile_card {
   display: block;
-  border-radius: 70px;
+  width: 500px;
+  margin: 2%;
+  border: 1px solid #00ff29;
+  border-radius: 36px;
   padding: 5%;
+  text-decoration: none;
+  color: #00ff29;
+}
+
+.profile_card:hover {
+  background-color: #012105;
 }
 
 .profile {
-  width: 500px;
-  margin: 50px;
-  border: 1px solid #00ff29;
-  border-radius: 70px;
-  padding: 5%;
+  display: block;
+  padding: 2%;
 }
 
 p {

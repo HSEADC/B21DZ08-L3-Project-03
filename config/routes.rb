@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts
   resources :profiles do
     resources :posts
   end
