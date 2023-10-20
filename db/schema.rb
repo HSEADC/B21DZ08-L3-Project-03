@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_043143) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_040408) do
   create_table "posts", force: :cascade do |t|
-    t.integer "post_id"
     t.string "post_name"
     t.string "pic"
     t.text "description"
@@ -23,7 +22,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_043143) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "profile_id"
     t.string "profile_pic"
     t.string "nick_name"
     t.text "description"
@@ -33,7 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_043143) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "user_id"
     t.string "password"
     t.string "string"
     t.string "user_status"
