@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Profiles</h1>
-
+<%= link_to "New profile", new_profile_path %>
 <div id="profiles">
   <% @profiles.each do |profile| %>
   <%= link_to profile, class: "profileCard" do %>
@@ -10,4 +10,3 @@
   <% end %>
 </div>
 
-<%= link_to "New profile", new_profile_path %>
