@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @profile %>
+<%= link_to "New Post", new_profile_post_path(@profile) %> |
 <h1>Posts</h1>
 <%= render @profile.posts%>
 <div>

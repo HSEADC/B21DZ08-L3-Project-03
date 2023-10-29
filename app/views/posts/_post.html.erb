@@ -1,27 +1,28 @@
-<div id="<%= dom_id post %>">
+<div id="<%= dom_id post %>" class="post_card">
+<% if post.pic.url %>
+  <%= image_tag post.pic.url, class:"image"%>
+<% end %>
+  <p>
+    <strong>By user:</strong>
+    <%= post.user.email %>
+  </p>
   <p>
     <strong>Post title:</strong>
     <%= post.post_title %>
   </p>
 
   <p>
-    <strong>Pic:</strong>
-    <%= post.pic %>
-  </p>
-
-  <p>
     <strong>Description:</strong>
     <%= post.description %>
   </p>
-
   <p>
     <strong>Link:</strong>
     <%= post.link %>
   </p>
-
-  <p>
-    <strong>Profile:</strong>
-    <%= post.profile_id %>
-  </p>
-
 </div>
+<% if can? :manage, post%>
+<div>
+  <%= link_to "Edit this post", edit_profile_post_path(@profile, post) %> |
+  <%= button_to "Destroy this post", [@profile, post], method: :delete %>
+</div>
+<% end %>

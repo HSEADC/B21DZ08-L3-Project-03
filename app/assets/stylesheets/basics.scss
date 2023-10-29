@@ -9,7 +9,6 @@ h1, h2, p, a {
     align-items: center;
     width: 400px;
     height: 600px;
-    padding: 40px;
     border-radius: 24px;
     background-color: #6342F5;
 }
@@ -29,4 +28,18 @@ nav > a{
     color: #6342F5;
     width: 100px;
     text-decoration: none;
+}
+.image{
+    width: 100%;
+    object-fit: scale-down;
+}
+.post_card{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: fit-content;
+    border-radius: 24px;
 }
