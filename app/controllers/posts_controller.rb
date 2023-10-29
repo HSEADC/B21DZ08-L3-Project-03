@@ -20,8 +20,8 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    # @post = @profile.posts.new(post_params)
-    @post = @profile.posts.new(post_title: params[:post][:post_title], pic: params[:post][:pic], description: params[:post][:description], link: params[:post][:link], user_id: current_user.id)
+    @post = @profile.posts.new(post_params)
+    # @post = @profile.posts.new(post_title: params[:post][:post_title], pic: params[:post][:pic], description: params[:post][:description], link: params[:post][:link], user_id: current_user.id)
 
     respond_to do |format|
       if @post.save
@@ -67,6 +67,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:post_title, :pic, :description, :link)
+      params.require(:post).permit(:post_title, :pic, :description, :link).merge(user_id: current_user.id)
     end
 end

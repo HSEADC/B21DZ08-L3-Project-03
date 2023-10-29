@@ -10,6 +10,7 @@ class Ability
     can :create, Post
     if user
       can :manage, Post, user_id: user.id
+      can :manage, Profile, user_id: user.id
     end
     # can :edit, Post, user_id: user.id
     # can :update, Post, user_id: user.id
