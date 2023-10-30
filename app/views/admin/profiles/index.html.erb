@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Profiles</h1>
-<%= link_to "New profile", new_profile_path %>
+<%= link_to "New profile", new_admin_profile_path %>
 <div id="profiles">
   <% @profiles.each do |profile| %>
-  <%= link_to profile, class: "profileCard" do %>
+  <%= link_to [:admin, profile], class: "profileCard" do %>
     <%= render profile %>
     <% end %>
   <% end %>

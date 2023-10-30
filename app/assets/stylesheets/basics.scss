@@ -1,45 +1,941 @@
-h1, h2, p, a {
-    color: rgb(255, 255, 241);
-    font-family: Helvetica;
-}
-.profileCard{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    height: 600px;
-    border-radius: 24px;
-    background-color: #6342F5;
+*{
+    box-sizing: border-box;
 }
 body{
-    width: 100%;
-    max-width: 100%;
-    background-color: #111111;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1520px;
+    margin: 0 auto;
+    max-width: 100vw;
+    background-color: #060606;
+    overflow-x: hidden;
+    position: relative;
 }
 nav{
-    max-width: 100%;
     display: flex;
-    align-items: center;
+    z-index: 200;
+    flex-direction: row;
     justify-content: space-between;
-    margin: 0 40% 0
+    position: fixed;
+    align-items: center;
+    top: 18px;
+    width: 1520px;
+    max-width: 100%;
+    height: 66px;
+    padding: 0 50px;
+    background-color: #232323;
+    border-radius: 10px;
+    box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);    p, a{
+        cursor: pointer;
+        font-size: 24px
+    }
 }
-nav > a{
-    color: #6342F5;
-    width: 100px;
-    text-decoration: none;
+p, h1, h2, h3, a{
+    all: unset;
+    font-family: Suisse Intl;
+    color: #C9C9C9;
 }
-.image{
+
+.A_Button{
+    cursor: pointer;
+    font-family: Suisse Intl;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 20px;
+    width: fit-content;
+    border-radius: 10px;
+    background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));
+}  
+.Mobile{
+    display: none;
+}
+.A_Line{
+    position: absolute;
+    bottom: 0;
+}
+.A_Splash{
     width: 100%;
-    object-fit: scale-down;
+    max-width: 1127px;
 }
-.post_card{
-    overflow: hidden;
+.A_Title{
+    width: 100%;
+    font-size: 68px;
+    font-weight: 500;
+}   
+.A_Dot{
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1/1;
+    background-color: #C9C9C9;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.Logo{
+    height: 30px;
+    img{
+        height: 30px;
+    }
+}
+.C_Buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+.C_Dots{
+    margin-top: 36px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+}
+.C_Row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 32px;
+}
+.W_Block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding: 36px;
+    border-radius: 32px;
+}
+.W_2ColumnBlock{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 400px;
-    height: fit-content;
     border-radius: 24px;
+    background-color: #232323;    
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    flex-basis: 0;
+    padding: 35px;
+}
+.network{
+    img{
+        width: 100%;
+    }
+}
+.A_Factoid{
+    border-radius: 24px;
+    background-color: #232323;
+    width: 100%;
+    height: 518px;
+    position: relative;
+    img{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.W_4ColumnBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #232323; 
+    border-radius: 24px;   
+    flex-grow: 4;
+    flex-basis: 0;
+}
+
+.W_HalfBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #232323;
+    border-radius: 32px;
+    padding: 48px 146px;
+    gap: 20px;
+    p{
+        color: #ABA4A4;
+        text-align: center;
+    }
+    p:first-child{
+        font-size: 32px;
+        font-weight: 500;
+    }
+}
+.W_CardHolder{
+    width: 100%;
+    height: 410px;
+    border-radius: 32px;
+    background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));
+    position: relative;
+}
+.W_CardFade{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    img{
+        margin-bottom: -1px;
+    }
+}
+.A_Card{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 1104px;
+    
+
+}
+h2{
+    font-size: 58px;
+    font-weight: 500;
+}
+p{
+    font-size: 24px;
+    font-weight: 400;
+    color: #ABA4A4;
+}
+.O_Form{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    *{
+        all: unset;
+    }
+    label{
+
+    }
+    div:first-of-type{
+        height: 62px;
+        label{
+            display: none !important;
+        }
+        input{
+            all: unset;
+            box-sizing: border-box;
+            font-family: Suisse Intl;
+            font-weight: 500;
+            font-size: 24px;
+            display: flex;
+            padding: 17px 36px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #C9C9C9;
+            border-radius: 10px;
+            width: 484px;
+            height: 62px;
+            padding: 20.414px 203.161px 17.391px 27px;
+        }
+    }
+    div:last-of-type{
+        input:last-of-type{
+            font-family: Suisse Intl;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 24px;
+            display: flex;
+             padding: 17px 36px;
+             justify-content: space-between;
+             align-items: center;
+             background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));        }
+    }
+}
+.section{
+    width: 100%;
+    margin: 57px 0 57px;
+    border-radius: 22px;
+    &.O_Socials{
+        .W_CardFade{
+            img{
+                margin-bottom: -2px;
+            }
+        }
+        .C_Row{
+            height: 378px;
+            background-image: url('/uploads/TH.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;        
+            .W_Block{           
+                justify-content: space-between;
+                .U_Paragraph{
+                    display: flex;
+                    flex-direction:column;
+                    gap: 22px;
+                    h2, p{
+                        color: #0D0D0D;
+                    }
+                    p{
+                        width: 682px;
+                    }
+                }     
+            }
+            .A_Button{
+                justify-self: flex-end;
+                color: #C9C9C9;
+                background: #232323;
+            }
+        }
+    }
+    &.O_Open{
+        position: relative;
+        margin-top:140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #232323;
+        height: 70vh;
+        .A_Button{
+            position: absolute;
+            bottom: -40px;
+            
+        }
+    }
+    &.O_Work{
+        .C_Row{
+            margin-top: 32px;
+
+            border-radius: 22px;
+            background-color: #C9C9C9;
+            gap: 0;
+            justify-content: space-evenly;
+        }
+        p{
+            width: 699px;
+            color: #3C3C3C;
+        }
+    }
+    &.O_Projects{
+        h2{
+            margin-bottom: 32px;
+        }
+        .W_2ColumnBlock{
+            align-items: flex-start;
+            justify-content: start;
+        }
+        .W_4ColumnBlock{
+            background-color: #060606;
+            .C_Row{
+                .W_HalfBlock{
+                    align-items: start;
+                    padding: 31px 48px;
+                    p{
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    &.O_Cards{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #212121;
+        padding: 35px 44px;
+        h2{
+            margin-bottom: 32px;
+            align-self: flex-start;
+        }
+        p{
+            width: 700px;
+            align-self: flex-start;
+            margin-bottom: 192px;
+        }
+    }
+    &.O_Opportunities{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .C_Row:last-child{
+            .W_Block{
+                background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));
+                h2{
+                    width: 964px;
+                    color: #0D0D0D;
+                }
+                p{
+                    font-size: 25px;
+                }
+                .A_Button{
+                    background: #232323;
+                    color: #C9C9C9;
+                }                }
+            
+        }
+    }
+    &.O_Subscription{
+        .C_Row{
+            .W_HalfBlock{
+                overflow: hidden;
+                padding: 0;
+            }
+            .W_HalfBlock:first-child{
+                gap: 40px;
+                padding: 40px 45px;
+                h2{
+                    line-height: 96.8%;
+                }
+                h2, p{
+                    text-align: start;
+                }
+            }
+        }
+    }
+    &.O_Footer{
+        margin-top: 228px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        .W_CardHolder{
+            width: 100%;
+            position: relative;
+            background: #212121;
+            .A_Card{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                width: 100%;
+            }
+        }
+        .W_FooterLinksAndInfo{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            a{
+                font-size: 20px;
+                color: #939393;
+            }
+            .C_FooterLinks{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 640px;
+            }
+        }
+    }
+    &.O_ADCInfo{
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        gap: 32px;
+        background-color: #060606;
+            .TextBoxButtons{
+                border-radius: 24px;
+                background-color: #232323;    
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 35px 45px;
+                gap: 176px;
+                p{
+                    width: 700px;
+                }
+        }
+        
+    }
+}
+.nav_links{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 26px;
+}
+@media all and (max-width: 1680px) {
+    .W_CardFade{
+        img{
+            margin-bottom: -3px;
+        }
+    }    
+    body, nav{
+        width: 1200px;
+    }
+    p{
+        font-size: 20px;
+    } 
+    h1{
+        font-size: 54px;
+
+    } h2, .A_Title{
+        font-size: 48px;
+    }
+    a{
+        font-size: 20px;
+    }    
+        
+    .section{
+        &.O_Open{
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_ADCInfo{
+            .TextBoxButtons{
+                p{
+                    width: 554px;
+                } 
+            }
+            h2{
+                width: 735px;
+            }
+        }
+        &.O_Opportunities{
+            p{
+                width: 324px;
+            }
+            .W_CardFade{
+                .C_Row{
+                    .W_Block{
+                        h2{
+                            width: 677px;    
+                        }
+                    }
+            }
+            }
+        }
+        &.O_Projects{
+            .W_HalfBlock {
+                p{
+                    width: 100%;
+                }
+            }        
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Work{
+            p{
+                width: 456px;
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Cards{
+            .W_CardHolder{
+                height: 320px;
+            }
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Socials{
+            .C_Row{
+                height: 300px;
+            }
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Footer{
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+    }
+    .W_HalfBlock {
+        padding: 38px 116px;
+        img{
+            width: 100%;
+        }
+        p:first-child {
+            font-size: 24px;
+            font-weight: 500;
+            width: 356px;
+    } 
+    }
+    .A_Card{
+        width: 875px;
+    }
+}
+@media all and (max-width: 1366px) {
+    .A_Card{
+        width: 730px;
+    }
+    .W_CardFade{
+        img{
+            margin-bottom: -4px;
+        }
+    }    
+    body, nav{
+        width: 1000px;
+    }
+    p{
+        font-size: 18px;
+    } 
+    h1{
+        font-size: 45px;
+
+    } h2, .A_Title{
+        margin-bottom: -32px;
+        font-size: 40px;
+    }
+    a{
+        font-size: 20px;
+    }    
+        
+    .section{
+        margin-bottom: 69px;
+        &.O_Open{
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_ADCInfo{
+            .TextBoxButtons{
+                p{
+                    width: 470px;
+                } 
+            }
+            h2{
+                width: 613px;
+            }
+        }
+        &.O_Opportunities{
+            p{
+                width: 270px;
+            }
+            .W_CardFade{
+                .C_Row{
+                    .W_Block{
+                        h2{
+                            width: 677px;    
+                        }
+                    }
+            }
+            }
+        }
+        &.O_Projects{
+            .W_HalfBlock {
+                p{
+                    width: 100%;
+                }
+            }        
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Work{
+            .C_Row{
+                .W_Block{
+                    gap: 19px;
+                    .C_Row:first-of-type{
+                        .A_CompanyLogo:nth-child(1){width:233px}
+                        .A_CompanyLogo:nth-child(2){width:205px}
+                        .A_CompanyLogo:nth-child(3){width:87px}
+                        .A_CompanyLogo:nth-child(4){width:105px}
+                    }
+                    .C_Row:last-child{
+                        .A_CompanyLogo:nth-child(1){width:149px}
+                        .A_CompanyLogo:nth-child(2){width:59px}
+                        .A_CompanyLogo:nth-child(3){width:213px}
+                        .A_CompanyLogo:nth-child(4){width:41px}
+                        .A_CompanyLogo:nth-child(5){width:217px}
+                        .A_CompanyLogo:nth-child(6){width:41px}                    
+                    }
+                }
+            }
+            p{
+                width: 456px;
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Cards{
+            .W_CardHolder{
+                height: 270px;
+            }
+            p{
+                margin-bottom: 119px;
+            } 
+            h1{
+
+            }
+        }
+        &.O_Socials{
+            .W_CardFade{
+                img{
+                    margin-bottom: -1px;
+                }
+            }           
+            .C_Row{
+                height: 250px;
+            } 
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Footer{
+            margin-top: 200px;
+            .W_CardHolder{
+                height: 233px;
+            }
+            p{
+
+            } 
+            h1{
+
+            }
+        }}
+        .W_HalfBlock {
+            padding: 32px 90px;
+            img{
+                width: 100%;
+            }
+            p{
+            }
+            p:first-child {
+                font-size: 20px;
+                font-weight: 500;
+                width: 296px;
+        } 
+        }
+    
+}
+@media all and (max-width: 1100px) {
+    .A_Button{
+        font-size: 20px;
+        padding: 15px 20px;
+    }
+    .ImagesContainer{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .section{flex-direction: column;}
+    .A_Card{
+        width: 730px;
+    }
+    .A_Splash{
+        display: block;
+        &:not(.Mobile){
+            display: none;
+        }
+    }
+    .W_CardFade{
+        img{
+            margin-bottom: -7px;
+        }
+    }    
+    body, nav{
+        width: 700px;
+    }
+    p{
+        font-size: 20px;
+    } 
+    h1{
+        font-size: 45px;
+
+    } h2, .A_Title{
+        margin-bottom: 0px;
+        font-size: 40px;
+    }
+    a{
+        font-size: 20px;
+    }    
+        
+    .section{
+        margin-bottom: 69px;
+        &.O_Open{
+            .A_Button{
+                bottom: -24px;
+            }        
+            height: 80vh;
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_ADCInfo{
+            .TextBoxButtons{
+                gap: 80px;
+                padding: 23px;
+                p{
+                    width: 470px;
+                } 
+            }
+            h2{
+                width: 613px;
+            }
+        }
+        &.O_Opportunities{
+            p{
+                width: 270px;
+            }
+            .W_CardFade{
+                .C_Row{
+                    .W_Block{
+                        h2{
+                            width: 475px;    
+                        }
+                    }
+            }
+            }
+        }
+        &.O_Projects{
+            .C_Row{
+                flex-direction: column;
+                gap: 22px;
+                div{
+                    border-radius: 12px;
+                }
+                .W_4ColumnBlock{
+                    gap: 22px;
+                    .C_Row{
+                        flex-direction: row;
+                        gap: 22px;
+                        div{
+                            gap: 0;
+                            p:first-child{
+                                font-size: 46px;
+                            }
+                            border-radius: 14px;
+                        }
+                    }
+                }
+            }
+            .W_HalfBlock {
+                p{
+                    width: 100%;
+                }
+            }        
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Work{
+            .C_Row{
+                .W_Block{
+                    gap: 19px;
+                    .C_Row:first-of-type{
+                        flex-wrap: wrap;
+                        row-gap: 20px;
+                        .A_CompanyLogo:nth-child(1){width:235px}
+                        .A_CompanyLogo:nth-child(2){width:205px; order:4}
+                        .A_CompanyLogo:nth-child(3){width:88px; order: 2}
+                        .A_CompanyLogo:nth-child(4){width:107px; order: 3}
+                    }
+                    .C_Row:last-child{
+                        flex-wrap: wrap;
+                        row-gap: 20px;
+                        .A_CompanyLogo:nth-child(1){width:151px; order: 2}
+                        .A_CompanyLogo:nth-child(2){width:60px; order:4}
+                        .A_CompanyLogo:nth-child(3){width:214px; order:5}
+                        .A_CompanyLogo:nth-child(4){width:41px; order:1}
+                        .A_CompanyLogo:nth-child(5){width:216px; order: 6;}
+                        .A_CompanyLogo:nth-child(6){width:41px; order:3}                    
+                    }
+                }
+            }
+            p{
+                width: 456px;
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Subscription{
+            .C_Row{
+                flex-direction: column;
+                border-radius: 20px;
+                background-color: #232323;
+            }
+        }
+        &.O_Cards{
+            .W_CardHolder{
+                height: 270px;
+            }
+            p{
+                margin-bottom: 119px;
+            } 
+            h1{
+
+            }
+        }
+        &.O_Socials{
+            .W_CardFade{
+                img{
+                    margin-bottom: -1px;
+                }
+            }           
+            .C_Row{
+                height: 250px;
+            } 
+            p{
+
+            } 
+            h1{
+
+            }
+        }
+        &.O_Footer{
+            margin-top: 200px;
+            .W_CardHolder{
+                height: 233px;
+            }
+            p{
+
+            } 
+            h1{
+
+            }
+        }}
+        .W_HalfBlock {
+            padding: 68px 0;
+            img{
+                align-self: flex-end;
+                width: 70%;
+            }
+            p{
+            }
+            p:first-child {
+                font-size: 26px;
+                font-weight: 500;
+                width: 334px;
+        } 
+        }
 }

@@ -22,7 +22,7 @@
 </div>
 <% if can? :manage, post%>
 <div>
-  <%= link_to "Edit this post", edit_profile_post_path(@profile, post) %> |
-  <%= button_to "Destroy this post", [@profile, post], method: :delete %>
+  <%= link_to "Edit this post", edit_admin_profile_post_path(@profile, post) %> |
+  <%= button_to "Destroy this post", [:admin, @profile, post], method: :delete %>
 </div>
 <% end %>

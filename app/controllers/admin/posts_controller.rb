@@ -1,16 +1,19 @@
-class PostsController < ApplicationController
-  before_action :authenticate_user!, expect: %i[ show ]
+class Admin::PostsController < ApplicationController
   load_and_authorize_resource
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :set_profile, only: %i[ show new edit create update destroy ]
+  # before_action :set_profile, only: %i[ show new edit create update destroy ]
 
   # GET /posts or /posts.json
-  # GET /posts/1 or /posts/1.json
+  def index
+    @posts = Post.all
+  end
+   # GET /posts/1 or /posts/1.json
   def show
   end
 
   # GET /posts/new
   def new
+    @profile = Profile.find(params[:profile_id])
     @post = Post.new
   end
 
@@ -20,12 +23,11 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
+    @profile = Profile.find(params[:profile_id])
     @post = @profile.posts.new(post_params)
-    # @post = @profile.posts.new(post_title: params[:post][:post_title], pic: params[:post][:pic], description: params[:post][:description], link: params[:post][:link], user_id: current_user.id)
-
     respond_to do |format|
       if @post.save
-        format.html { redirect_to profile_url(@profile), notice: "Post was successfully created." }
+        format.html { redirect_to admin_profile_url(@profile), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to profile_url(@profile), notice: "Post was successfully updated." }
+        format.html { redirect_to admin_profile_url(@post.profile), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,9 +51,10 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
+    @profile = @post.profile
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to profile_url(@profile), notice: "Post was successfully destroyed." }
+      format.html { redirect_to admin_profile_url(@profile), notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -64,7 +67,6 @@ class PostsController < ApplicationController
     def set_profile
       @profile = Profile.find(params[:profile_id])
     end
-
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:post_title, :pic, :description, :link).merge(user_id: current_user.id)
