@@ -244,10 +244,10 @@ p{
             font-weight: 500;
             font-size: 24px;
             display: flex;
-             padding: 17px 36px;
-             justify-content: space-between;
-             align-items: center;
-             background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));        }
+            padding: 17px 36px;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));        }
     }
 }
 .section{
@@ -730,6 +730,32 @@ p{
     
 }
 @media all and (max-width: 1100px) {
+    .Mobile{
+        display: block;
+    }
+    .section{
+        margin: 17px 0 17px;
+
+    }
+    .O_Form{
+        flex-direction: column;
+        div:last-of-type{
+            input:last-of-type{
+                font-family: Suisse Intl;
+                border-radius: 10px;
+                font-weight: 500;
+                font-size: 20px;
+                display: flex;
+                padding: 15px 20px;
+                justify-content: space-between;
+                align-items: center;
+                background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));        }
+        }    
+    }
+    .W_HalfBlock{
+        border-radius: 12px;
+
+    }
     .A_Button{
         font-size: 20px;
         padding: 15px 20px;
@@ -745,6 +771,12 @@ p{
         width: 730px;
     }
     .A_Splash{
+        display: block;
+        &:not(.Mobile){
+            display: none;
+        }
+    }
+    .U_Network{
         display: block;
         &:not(.Mobile){
             display: none;
@@ -775,6 +807,7 @@ p{
     .section{
         margin-bottom: 69px;
         &.O_Open{
+            border-radius: 12px;
             .A_Button{
                 bottom: -24px;
             }        
@@ -787,7 +820,12 @@ p{
             }
         }
         &.O_ADCInfo{
+            border-radius: 12px;
+            .W_2ColumnBlock{
+                border-radius: 12px;
+            }
             .TextBoxButtons{
+                border-radius: 12px;
                 gap: 80px;
                 padding: 23px;
                 p{
@@ -800,7 +838,7 @@ p{
         }
         &.O_Opportunities{
             p{
-                width: 270px;
+                width: 311px;
             }
             .W_CardFade{
                 .C_Row{
@@ -848,6 +886,7 @@ p{
         }
         &.O_Work{
             .C_Row{
+                border-radius: 14px;
                 .W_Block{
                     gap: 19px;
                     .C_Row:first-of-type{
@@ -859,6 +898,7 @@ p{
                         .A_CompanyLogo:nth-child(4){width:107px; order: 3}
                     }
                     .C_Row:last-child{
+                        margin-top: 0;
                         flex-wrap: wrap;
                         row-gap: 20px;
                         .A_CompanyLogo:nth-child(1){width:151px; order: 2}
@@ -886,6 +926,7 @@ p{
             }
         }
         &.O_Cards{
+            border-radius: 14px;
             .W_CardHolder{
                 height: 270px;
             }
@@ -903,10 +944,17 @@ p{
                 }
             }           
             .C_Row{
-                height: 250px;
-            } 
-            p{
+                height: 268px;
+                .W_Block{
 
+                    .U_Paragraph{
+        
+                        p{
+                            width: 424px;
+                            font-size: 18px;
+                        } 
+                    }
+                }
             } 
             h1{
 
@@ -915,10 +963,18 @@ p{
         &.O_Footer{
             margin-top: 200px;
             .W_CardHolder{
-                height: 233px;
+                height: 153px;
             }
-            p{
-
+            .A_FooterInfo{
+                display: none;
+            }
+            .W_FooterLinksAndInfo{
+                .C_FooterLinks{
+                    width: 100%;
+                }
+            }
+            a{
+                width: fit-content;
             } 
             h1{
 
