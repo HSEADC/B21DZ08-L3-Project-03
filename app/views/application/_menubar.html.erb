@@ -1,22 +1,22 @@
 <nav>
-<div class="Logo">
-  <img src="/uploads/logo.png" alt="">
-</div>
-<div class="nav_links">
+  <div class="Logo">
+    <img src="/uploads/logo.png" alt="">
+  </div>
+  <div class="nav_links">
     <%= link_to "главная", welcome_index_url %>
     <%= link_to "о проекте", welcome_about_url %>
-    <a href="#">канал</a>
-</div>
-<% if user_signed_in? && current_user.admin == true %>
-<div>
-<%= link_to "Profiles", admin_profiles_url %>
-<%= link_to "Posts", admin_posts_url %>
-<%= link_to "Subscriptions", admin_subscriptions_url %>
-  <%#= link_to current_user.email, edit_user_registration_path %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%#= link_to "Log in", new_user_session_path %>
-  <%#= link_to "Register", new_user_registration_path %>
-</div>
-<% end %>
+    <a href="https://t.me/adcoffer", target="_blank">канал</a>
+  </div>
+  <% if user_signed_in? && current_user.admin == true %>
+    <div>
+      <%= link_to "Profiles", admin_profiles_url %>
+      <%= link_to "Posts", admin_posts_url %>
+      <%= link_to "Subscriptions", admin_subscriptions_url %>
+      <%#= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%#= link_to "Log in", new_user_session_path %>
+      <%#= link_to "Register", new_user_registration_path %>
+    </div>
+  <% end %>
 </nav>

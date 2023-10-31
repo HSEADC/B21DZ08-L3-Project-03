@@ -1,10 +1,19 @@
-<% if notice %>
-  <div class="error_window">
-    <p style="color: green"><%= notice %></p>
+<div class="section O_Open">
+  <img class="A_Splash" src="/uploads/splash.png" alt="">
+  <img class="A_Splash Mobile" src="/uploads/splashMobile.png" alt="">
+  <img class="A_Line" src="/uploads/line.png" alt="">
+</div>
+<div class="section O_Socials">
+  <div class="W_CardFade">
+    <img src="/uploads/fadeWhite.png" alt="">
+    <div class="C_Row">
+      <div class="W_Block">
+        <div class="U_Paragraph">
+          <h2>Наш TG канал</h2>
+          <p>Публикует свежие вакансии от работодателей и апдейты по нашему сервису. Здесь можно встретить крутую тусовку из вовлеченных в индустрию людей!</p>
+        </div>
+        <a href="https://t.me/adcoffer" target="_blank" class="A_Button">Открыть в Telegram</a>
+      </div>
+    </div>
   </div>
-<% end %>
-<h1 style="color: <%= @colors%>">Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<%= turbo_frame_tag @subscription do %>
-  <%= render 'subscriptions/form', subscription: @subscription %>
-<% end %>
+</div>

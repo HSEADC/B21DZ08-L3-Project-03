@@ -54,6 +54,11 @@ p, h1, h2, h3, a{
     border-radius: 10px;
     background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));
 }  
+a:visited{
+    &.A_Button{
+        color:#232323;
+    }
+}
 .Mobile{
     display: none;
 }
@@ -135,7 +140,9 @@ p, h1, h2, h3, a{
     width: 100%;
     height: 518px;
     position: relative;
+    overflow: hidden;
     img{
+        height: 100%;
         width: 100%;
         position: absolute;
         top: 50%;
@@ -347,7 +354,7 @@ p{
             align-self: flex-start;
         }
         p{
-            width: 700px;
+            width: 640px;
             align-self: flex-start;
             margin-bottom: 192px;
         }
@@ -376,6 +383,7 @@ p{
     &.O_Subscription{
         .C_Row{
             .W_HalfBlock{
+                align-items: flex-start;
                 overflow: hidden;
                 padding: 0;
             }
@@ -383,6 +391,7 @@ p{
                 gap: 40px;
                 padding: 40px 45px;
                 h2{
+                    width: 646px;
                     line-height: 96.8%;
                 }
                 h2, p{
@@ -438,9 +447,25 @@ p{
                 justify-content: space-between;
                 padding: 35px 45px;
                 gap: 176px;
+                .C_Buttons{
+                    .A_Button:last-child{
+                    }
+                }
                 p{
                     width: 700px;
                 }
+        } .W_2ColumnBlock{
+            display: block;
+            gap: 0;
+            .ImagesContainer{
+                height: 100%;
+                object-fit: cover;
+                overflow:hidden;
+                border-radius: 25px;
+                img{
+                    height: 100%;
+                }
+            }
         }
         
     }
@@ -492,6 +517,15 @@ p{
                 width: 735px;
             }
         }
+        &.O_Subscription{
+            .C_Row{
+                .W_HalfBlock:first-child{
+                    h2{
+                        width: 100%;
+                    }
+                }
+            }
+        }
         &.O_Opportunities{
             p{
                 width: 324px;
@@ -512,6 +546,9 @@ p{
                     width: 100%;
                 }
             }        
+            .A_Factoid{
+                height: 411px;
+            }
             p{
 
             } 
@@ -533,6 +570,7 @@ p{
                 height: 320px;
             }
             p{
+                width: 540px;
 
             } 
             h1{
@@ -639,7 +677,10 @@ p{
                 p{
                     width: 100%;
                 }
-            }        
+            }       
+            .A_Factoid{
+                height: 342px;
+            } 
             p{
 
             } 
@@ -948,9 +989,9 @@ p{
                 .W_Block{
 
                     .U_Paragraph{
-        
+                        gap: 10px;
                         p{
-                            width: 424px;
+                            width: 100%;
                             font-size: 18px;
                         } 
                     }

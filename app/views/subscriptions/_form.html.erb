@@ -11,11 +11,11 @@
   <% end %>
   <div class="O_Form">
     <div>
-      <%= form.label :email, style: "display: block" %>
-      <%= form.email_field :email %>
+      <%= form.label :email, class: "Form_Label",style: "display: block" %>
+      <%= form.email_field :email, placeholder: "example@example.ru" %>
     </div>
     <div>
-      <%= form.submit %>
+      <%= form.submit "Отправить"%>
     </div>
   </div>
 <% end %>
