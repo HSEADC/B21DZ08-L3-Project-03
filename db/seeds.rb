@@ -24,6 +24,11 @@ def upload_random_image
   uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample))
   uploader
 end
+def upload_random_image
+  uploader = PostImageUploader.new(Profile.new, :profile_pic)
+  uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample))
+  uploader
+end
 # puts words
 def create_profiles(quantity)
     quantity.times do
