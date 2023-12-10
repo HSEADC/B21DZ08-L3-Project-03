@@ -31,6 +31,12 @@ body{
         flex-direction: column;
     }
 }
+.replies{
+    padding-left: 40px;
+    div{
+        padding: 20px;
+    }
+}
 .O_Profile{
     position: sticky;
     top: 100px;

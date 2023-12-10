@@ -6,6 +6,7 @@ def seed
     create_users
     create_profiles(30)
     create_posts(2, 8)
+    create_post_replies(500, 1000)
   end
 def reset_db
     Rake::Task['db:drop'].invoke
@@ -71,5 +72,18 @@ def create_posts(x, y)
         puts "Post with id #{post.id} associated with profile id #{post.profile.id}"
     end
 end
+end
+def create_post_replies(x, y)
+    (x..y).to_a.sample.times do
+      user = User.all.sample
+      post = Post.all.sample
+      reply = post.replies.create(profile_id: post.profile_id, user_id: user.id, description: create_sentence(2, 5))
+      puts "Post reply with id #{reply.id} associated with post id #{post.id}"
+    end
+    # Profile.all.each do |profile|
+    # (x..y).to_a.sample.times do
+    #     post = Post.create(profile_id: profile.id, description: create_sentence(2, 5), post_title: create_sentence(1, 1), pic: upload_random_image,user_id: user.id)
+    #     puts "Post with id #{post.id} associated with profile id #{post.profile.id}"
+    # end
 end
 seed

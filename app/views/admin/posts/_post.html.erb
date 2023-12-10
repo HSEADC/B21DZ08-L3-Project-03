@@ -1,4 +1,7 @@
 <div id="<%= dom_id post %>" class="post_card">
+  <% if post.reply_to_post_id != nil %>
+    <p> Ответ к посту #<%=  post.reply_to_post_id%></p>
+  <% end %>
   <% if post.pic.url %>
     <%= image_tag post.pic.url, class:["A_VerticallImage", "A_HorizontalImage", "A_SmallVerticallImage"].sample%>
   <% end %>
@@ -16,4 +19,9 @@
       <%= button_to "Destroy this post", [:admin, post], method: :delete %>
     </div>
   <% end %>
+  <div class="replies">
+    <%  post.replies.each do |reply|%>
+      <%=  render reply, partial: "posts/post", post: reply%>
+    <% end%>
+  </div>
 </div>
