@@ -1,7 +1,7 @@
 <div id="<%= dom_id post %>" class="post_card">
-<% if post.pic.url %>
-  <%= image_tag post.pic.url, class:"image"%>
-<% end %>
+  <% if post.pic.url %>
+    <%= image_tag post.pic.url, class:"image"%>
+  <% end %>
   <p>
     <strong>By user:</strong>
     <%= post.user.email %>
@@ -10,7 +10,6 @@
     <strong>Post title:</strong>
     <%= post.post_title %>
   </p>
-
   <p>
     <strong>Description:</strong>
     <%= post.description %>
@@ -21,8 +20,8 @@
   </p>
 </div>
 <% if can? :manage, post%>
-<div>
-  <%= link_to "Edit this post", edit_admin_profile_post_path(@profile, post) %> |
-  <%= button_to "Destroy this post", [:admin, @profile, post], method: :delete %>
-</div>
+  <div>
+    <%= link_to "Edit this post", edit_admin_profile_post_path(@profile, post) %> |
+    <%= button_to "Destroy this post", [:admin, @profile, post], method: :delete %>
+  </div>
 <% end %>

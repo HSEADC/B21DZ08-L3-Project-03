@@ -33,7 +33,7 @@ end
 def create_profiles(quantity)
     quantity.times do
         user = User.all.sample
-        profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 1), user_id: user.id, profile_pic: upload_random_image)
+        profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 12), user_id: user.id, profile_pic: upload_random_image)
         puts "Profile with id #{profile.id}"
     
     end    
@@ -67,7 +67,7 @@ def create_posts(x, y)
     user = User.all.sample
     Profile.all.each do |profile|
     (x..y).to_a.sample.times do
-        post = Post.create(profile_id: profile.id, description: create_sentence(20, 40), pic: upload_random_image,user_id: user.id)
+        post = Post.create(profile_id: profile.id, description: create_sentence(2, 5), post_title: create_sentence(1, 1), pic: upload_random_image,user_id: user.id)
         puts "Post with id #{post.id} associated with profile id #{post.profile.id}"
     end
 end

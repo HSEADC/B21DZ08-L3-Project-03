@@ -1,29 +1,19 @@
 <div id="<%= dom_id post %>" class="post_card">
   <% if post.pic.url %>
-    <%= image_tag post.pic.url, class:"image"%>
+    <%= image_tag post.pic.url, class:["A_VerticallImage", "A_HorizontalImage", "A_SmallVerticallImage"].sample%>
   <% end %>
   <div class="textContainer">
     <p>
-      <strong>By user:</strong>
-      <%= post.user.email %>
-    </p>
-    <p>
-      <strong>Post title:</strong>
       <%= post.post_title %>
     </p>
     <p>
-      <strong>Description:</strong>
-      <%= post.description %>
-    </p>
-    <p>
-      <strong>Link:</strong>
       <%= post.link %>
     </p>
   </div>
+  <% if can? :manage, post%>
+    <div>
+      <%= link_to "Edit this post", edit_admin_post_path(post) %>
+      <%= button_to "Destroy this post", [:admin, post], method: :delete %>
+    </div>
+  <% end %>
 </div>
-<% if can? :manage, post%>
-  <div>
-    <%= link_to "Edit this post", edit_admin_post_path(post) %>
-    <%= button_to "Destroy this post", [:admin, post], method: :delete %>
-  </div>
-<% end %>
