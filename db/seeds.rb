@@ -33,7 +33,7 @@ end
 def create_profiles(quantity)
     quantity.times do
         user = User.all.sample
-        profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 2), user_id: user.id)
+        profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 1), user_id: user.id, profile_pic: upload_random_image)
         puts "Profile with id #{profile.id}"
     
     end    
