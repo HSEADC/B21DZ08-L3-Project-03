@@ -1,0 +1,18 @@
+<div id="<%= dom_id text_post %>" class="text_post_card">
+  <% if text_post.pic.url %>
+    <%= image_tag text_post.pic.url, class:["A_VerticallImage", "A_HorizontalImage", "A_SmallVerticallImage"].sample%>
+  <% end %>
+  <div class="textContainer">
+    <a href="<%= admin_post_path(text_post) %>">
+      <%= text_post.post_title %>
+    </a>
+    <p>
+      <%= text_post.link %>
+    </p>
+  </div>
+  <div class="replies">
+    <%  text_post.replies.each do |reply|%>
+      <%=  render reply, partial: "text_posts/text_post", text_post: reply%>
+    <% end%>
+  </div>
+</div>

@@ -69,6 +69,20 @@ class Admin::PostsController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:post_title, :pic, :description, :link).merge(user_id: current_user.id)
+      p = nil
+
+      if params[:post]
+        p = params.require(:post)
+      elsif params[:text_post]
+        p = params.require(:text_post)
+      elsif params[:image_post]
+        p = params.require(:image_post)
+      elsif params[:video_post]
+        p = params.require(:video_post)
+      elsif params[:figma_post]
+        p = params.require(:figma_post)
+      end
+
+      p.permit(:post_title, :pic, :description, :link, :type).merge(user_id: current_user.id)
     end
 end

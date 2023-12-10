@@ -1,0 +1,2 @@
+class ImagePost < Post
+end

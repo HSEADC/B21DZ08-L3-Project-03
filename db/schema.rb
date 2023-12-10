@@ -12,14 +12,15 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_12_10_150604) do
   create_table "posts", force: :cascade do |t|
+    t.string "type"
     t.string "post_title"
     t.string "pic"
     t.text "description"
     t.string "link"
     t.integer "profile_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.integer "reply_to_post_id"
   end
 

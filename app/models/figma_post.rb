@@ -1,0 +1,2 @@
+class FigmaPost < Post
+end
