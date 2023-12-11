@@ -21,4 +21,5 @@ Rails.application.routes.draw do
       resources :posts
     end
     end
+    resources :profiles, only: [:show, :edit, :update]
 end

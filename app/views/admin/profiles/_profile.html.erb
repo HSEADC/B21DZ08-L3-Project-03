@@ -1,6 +1,8 @@
 <div id="<%= dom_id profile %>" class="W_Profile">
   <div>
-    <%= image_tag profile.profile_pic, class:"A_Pfp"%>
+    <% if profile.profile_pic != nil %>
+      <%= image_tag profile.profile_pic, class:"A_Pfp"%>
+    <% end %>
   </div>
   <p class="A_ProfileName">
     <%= profile.nick_name %>

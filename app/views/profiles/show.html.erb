@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<main class="fourColumns">
+  <div class="O_Profile">
+    <% if @profile.profile_pic != nil %>
+      <%= image_tag @profile.profile_pic, class:"A_Pfp"%>
+    <% end %>
+    <p class="A_ProfileName">
+      <%= @profile.nick_name %>
+    </p>
+    <p>
+      <%= @profile.description %>
+    </p>
+    <p>
+      <%= @profile.location %>
+    </p>
+    <%= link_to "Редактировать профиль", edit_profile_path(@profile), class:"A_ProfileButton" %>
+  </div>
+  <div class="W_Posts">
+    <%= render @profile.posts%>
+  </div>
+</main>
