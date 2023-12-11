@@ -5,4 +5,5 @@ class Post < ApplicationRecord
     belongs_to :user
     default_scope{where(reply_to_post_id: nil)}
     mount_uploader :pic, PostImageUploader
+    validates :post_title, presence: true
 end
