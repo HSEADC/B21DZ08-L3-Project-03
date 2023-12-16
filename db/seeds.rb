@@ -4,7 +4,7 @@ def seed
     reset_db
     create_admin
     create_users
-    create_profiles(30)
+    fill_profiles
     create_posts(2, 8)
     create_post_replies(500, 1000)
   end
@@ -31,13 +31,25 @@ def upload_random_image
   uploader
 end
 # puts words
-def create_profiles(quantity)
-    quantity.times do
-        user = User.all.sample
-        profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 12), user_id: user.id, profile_pic: upload_random_image)
-        puts "Profile with id #{profile.id}"
+# def create_profiles(quantity)
+#     quantity.times do
+#         user = User.all.sample
+#         profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 12), user_id: user.id, profile_pic: upload_random_image)
+#         puts "Profile with id #{profile.id}"
     
-    end    
+#     end    
+# end
+# def fill_profiles
+#   User.all.length.times do
+#     Profile.update(description: create_sentence(1, 3), nick_name: create_sentence(1, 2), profile_pic: upload_random_image)
+#   end
+# end
+def fill_profiles
+  User.all.each do |user|
+    profile = user.profile
+    profile.update(description: create_sentence(1, 3), nick_name: create_sentence(1, 2), profile_pic: upload_random_image)
+    puts "Profile with id #{profile.id} associated with user id #{user.id}"
+  end
 end
 def create_admin
     user_data = {
