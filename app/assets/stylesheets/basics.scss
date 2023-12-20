@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+$headerHeight: 66px;
+$lightGray: #1F1F23;
+$hoverColor: #32333A;
 body{
     margin: 0;
     padding: 0;
@@ -45,7 +48,7 @@ body{
     gap: 20px;
     width: 366px;
     height: fit-content;
-    background-color: #232323;
+    background-color: $lightGray;
     border-radius: 16px;
     box-sizing: border-box;
     padding: 20px;
@@ -63,7 +66,7 @@ body{
         border-radius: 12px;
         width: 313px;
         padding: 12px 16px;
-        color: #232323;
+        color: $lightGray;
         &:is(button){
             background-color: red;
             color: white;
@@ -80,6 +83,19 @@ body{
     height: 500px;
     object-fit: cover;
     border-radius: 12px;
+}
+.M_NavProfile{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+    .A_Pfp{
+        box-sizing: border-box;
+        width: 42px;
+        aspect-ratio: 1/1;
+        border-radius: 150px;
+    }    
 }
 .A_VerticallImage{
     width: 100%;
@@ -157,11 +173,12 @@ nav{
     top: 18px;
     width: 1520px;
     max-width: 100%;
-    height: 66px;
-    padding: 0 50px;
-    background-color: #232323;
+    height: $headerHeight;
+    padding: 0 26px;
+    background-color: $lightGray;
     border-radius: 10px;
-    box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);    p, a{
+    box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);    
+    p, a{
         cursor: pointer;
         font-size: 24px
     }
@@ -169,7 +186,7 @@ nav{
 p, h1, h2, h3, a{
     all: unset;
     font-family: Suisse Intl;
-    color: #C9C9C9;
+    color: #fff;
 }
 .post
 .A_Button{
@@ -188,7 +205,7 @@ p, h1, h2, h3, a{
 }  
 a:visited{
     &.A_Button{
-        color:#232323;
+        color:$lightGray;
     }
 }
 .Mobile{
@@ -216,9 +233,19 @@ a:visited{
     cursor: pointer;
 }
 .Logo{
-    height: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    height: 42px;
+    width: 42px;
+    align-items: center;
     img{
-        height: 30px;
+        height: 42px;
+        width: 42px;
+    }
+    p{
+        color: #fff;
+        text-wrap: nowrap;
     }
 }
 .C_Buttons{
@@ -254,7 +281,7 @@ a:visited{
     justify-content: space-between;
     align-items: center;
     border-radius: 24px;
-    background-color: #232323;    
+    background-color: $lightGray;    
     display: flex;
     flex-direction: column;
     flex-grow: 2;
@@ -268,7 +295,7 @@ a:visited{
 }
 .A_Factoid{
     border-radius: 24px;
-    background-color: #232323;
+    background-color: $lightGray;
     width: 100%;
     height: 518px;
     position: relative;
@@ -286,7 +313,7 @@ a:visited{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    background-color: #232323; 
+    background-color: $lightGray; 
     border-radius: 24px;   
     flex-grow: 4;
     flex-basis: 0;
@@ -297,7 +324,7 @@ a:visited{
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #232323;
+    background-color: $lightGray;
     border-radius: 32px;
     padding: 48px 146px;
     gap: 20px;
@@ -323,6 +350,72 @@ a:visited{
     gap: 0;
     img{
         margin-bottom: -1px;
+    }
+}
+.W_NavProfileWidget{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    height: 54px;
+    &:hover{
+        border-radius: 12px;
+        background-color: $hoverColor;
+    }
+    &:focus{
+        border-radius: 12px;
+        background-color: $hoverColor;
+    }
+}
+.A_NavProfileMenuToggler{
+    height: 10px;
+    cursor: pointer;
+}
+.W_navProfileMenu{
+    box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);    
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 315px;
+    border-radius: 12px;
+    top: $headerHeight;
+    right: 0;
+    &.activated{
+        visibility:visible;
+    }
+}
+.Q_Peak{
+    box-sizing: border-box;
+}
+.W_Peak{
+    box-sizing: border-box;
+    width: fit-content;
+    height: 11px;
+    align-self: flex-end;
+    padding-right: 19px;
+}
+.M_navProfileMenuButtons{
+    display: flex;
+    flex-direction: column;
+    width: 315px;
+    border-radius: 12px;
+    // padding: 12px 18px;
+    padding: 12px 0;
+    background-color: $lightGray;
+    overflow: hidden;
+    a{
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        height: 54px;
+        width: 100%;
+        padding: 0 18px;
+        &:hover{
+            box-sizing: border-box;
+            border-radius: 12px;
+            background-color: $hoverColor;
+        }
     }
 }
 .A_Card{
@@ -421,7 +514,7 @@ p{
             .A_Button{
                 justify-self: flex-end;
                 color: #C9C9C9;
-                background: #232323;
+                background: $lightGray;
             }
         }
     }
@@ -432,7 +525,7 @@ p{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #232323;
+        background-color: $lightGray;
         height: 70vh;
         .A_Button{
             position: absolute;
@@ -506,7 +599,7 @@ p{
                     font-size: 25px;
                 }
                 .A_Button{
-                    background: #232323;
+                    background: $lightGray;
                     color: #C9C9C9;
                 }                }
             
@@ -573,7 +666,7 @@ p{
         background-color: #060606;
             .TextBoxButtons{
                 border-radius: 24px;
-                background-color: #232323;    
+                background-color: $lightGray;    
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -603,10 +696,22 @@ p{
     }
 }
 .nav_links{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
     display: flex;
     flex-direction: row;
     width: fit-content;
     gap: 26px;
+    height: 54px;
+    a:hover{
+        display: flex;
+        align-items: center;
+        height: 54px;
+        border-radius: 12px;
+        background-color: $hoverColor;
+    }
 }
 @media all and (max-width: 1680px) {
     .W_CardFade{
@@ -1095,7 +1200,7 @@ p{
             .C_Row{
                 flex-direction: column;
                 border-radius: 20px;
-                background-color: #232323;
+                background-color: $lightGray;
             }
         }
         &.O_Cards{

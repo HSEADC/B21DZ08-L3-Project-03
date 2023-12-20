@@ -30,20 +30,6 @@ def upload_random_image
   uploader.cache!(File.open(Dir.glob(File.join(Rails.root, 'public/autoupload/posts', '*')).sample))
   uploader
 end
-# puts words
-# def create_profiles(quantity)
-#     quantity.times do
-#         user = User.all.sample
-#         profile = Profile.create(description: create_sentence(10, 20), nick_name: create_sentence(1, 12), user_id: user.id, profile_pic: upload_random_image)
-#         puts "Profile with id #{profile.id}"
-    
-#     end    
-# end
-# def fill_profiles
-#   User.all.length.times do
-#     Profile.update(description: create_sentence(1, 3), nick_name: create_sentence(1, 2), profile_pic: upload_random_image)
-#   end
-# end
 def fill_profiles
   User.all.each do |user|
     profile = user.profile

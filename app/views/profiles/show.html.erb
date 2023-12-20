@@ -13,6 +13,7 @@
     <p>
       <%= @profile.location %>
     </p>
+    <%= link_to "Новый пост", new_profile_post_path(@profile), class:"A_ProfileButton" %>
     <%= link_to "Редактировать профиль", edit_profile_path(@profile), class:"A_ProfileButton" %>
   </div>
   <div class="W_Posts">

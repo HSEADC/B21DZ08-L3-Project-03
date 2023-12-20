@@ -1,6 +1,7 @@
 <nav>
   <div class="Logo">
-    <img src="/uploads/logo.png" alt="">
+    <img src="/uploads/deepface.svg" alt="">
+    <p>adc оффер</p>
   </div>
   <div class="nav_links">
     <%= link_to "главная", welcome_index_url %>
@@ -20,7 +21,32 @@
     </div>
   <% end %>
   <% if user_signed_in? && current_user.admin == false%>
-    <%= link_to "Профиль", profile_path(current_user.profile) %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <%# link_to "Профиль", profile_path(current_user.profile) %>
+    <div class="W_NavProfileWidget">
+      <%= link_to profile_path(current_user.profile), class: "M_NavProfile" do %>
+        <div><%= "#{current_user.name} #{current_user.surname}" %></div>
+        <img class="A_Pfp" src=<%= "#{current_user.profile.profile_pic}" %> alt="">
+      <% end %>
+      <img class="A_NavProfileMenuToggler" src="/uploads/dropdown.svg" alt="">
+    </div>
+    <div class="W_navProfileMenu">
+      <div class="W_Peak">
+        <img class="Q_Peak" src="/uploads/nouse.svg" alt="">
+      </div>
+      <div class="M_navProfileMenuButtons">
+        <%= link_to "настройки профиля", profile_path(current_user.profile), method: :delete %>
+        <%= link_to "выйти", destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+  <% else %>
+    <%= link_to "Вход", new_user_session_path %>
   <%end %>
 </nav>
+<script>
+  // document.addEventListener("turbo:load", () => {
+  //   document.querySelector('.A_NavProfileMenuToggler').addEventListener('click', function() {
+  //     console.log('test')
+  //     document.querySelector(".W_navProfileMenu").classList.toggle('activated');
+  //   });
+  // });
+</script>

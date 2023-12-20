@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :subscriptions, only: [:create, :show]
+  resources :profiles do 
+    resources :posts
+  end
   get 'welcome/index'
   get 'welcome/about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -21,5 +24,4 @@ Rails.application.routes.draw do
       resources :posts
     end
     end
-    resources :profiles, only: [:show, :edit, :update]
 end
