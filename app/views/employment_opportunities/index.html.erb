@@ -1,15 +1,21 @@
-<h1>Employment Opportunities</h1>
-<div class="employment-opportunities">
-  <% @employmentOpportunities.each do |employment_opportunity| %>
-    <div class="employment-opportunity">
-      <h2><%= link_to employment_opportunity.title, employment_opportunity_path(employment_opportunity) %></h2>
-      <p><%= truncate(employment_opportunity.description, length: 150) %></p>
-      <span><strong>Type:</strong> <%= employment_opportunity.vacancy_type %></span>
-      <span><strong>Location:</strong> <%= employment_opportunity.location %></span>
-      <% if employment_opportunity.application_deadline %>
-        <span><strong>Deadline:</strong> <%= employment_opportunity.application_deadline.strftime("%B %d, %Y") %></span>
-      <% end %>
+<div class="SO_Vacancies">
+  <div class="O_TelegramBanner">
+    <div class="W_TelegramBannerContent">
+      <div class="C_BannerContentText">
+        <p class="A_BannerTitle">Наш TG-канал</p>
+        <p class="A_BannerDesciption">Оставайтесь в курсе последних обновлений по новым вакансиям и состоянии проекта в более  удобной форме</p>
+      </div>
+      <a class="A_BannerLink" href="https://t.me/adcoffer">
+        <p class="A_BannerLinkTitle">Telegram-канал</p>
+        <img src="/uploads/link.svg" alt=""></a>
     </div>
-  <% end %>
+  </div>
+  <div>
+    <%= link_to 'Add New Opportunity', new_employment_opportunity_path, class:'btn btn-primary' %>
+    <div class="O_Vacancies">
+      <% EmploymentOpportunity.all.each do |x|%>
+        <%= render x %>
+      <%  end %>
+    </div>
+  </div>
 </div>
-<%= link_to 'Add New Opportunity', new_employment_opportunity_path, class: 'btn btn-primary' %>

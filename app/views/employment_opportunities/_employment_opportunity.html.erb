@@ -1,20 +1,22 @@
-  <%= link_to employment_opportunity_path(employment_opportunity), class:"C_VacancyCard", id:"dom_id employment_opportunity" do %>
-  <div class="W_VacancyCardNameAndDate">
-    <p class="A_VacancyCardName">
-      <%= employment_opportunity.company_name %>
-    </p>
-    <div class="Q_Dot"></div>
-    <p class="A_VacancyCardDate">
-      <%= employment_opportunity.created_at %>
-    </p>
-  </div>
-  <div class="W_VacancyCardTitleAndLocation">
-    <p class="A_VacancyCardTitle">
-      <%= employment_opportunity.title %>
-    </p>
-    <p class="A_VacancyCardLocation">
-      <%= "#{employment_opportunity.location}, #{employment_opportunity.work_environment}" %>
-    </p>
+  <%= link_to employment_opportunity_path(employment_opportunity), class:"M_VacancyCard", id:"dom_id employment_opportunity" do %>
+  <div class="C_VacancyInfo">
+    <div class="W_VacancyCardNameAndDate">
+      <p class="A_VacancyCardName">
+        <%= employment_opportunity.company_name %>
+      </p>
+      <div class="Q_Dot"></div>
+      <p class="A_VacancyCardDate">
+        <%= employment_opportunity.created_at %>
+      </p>
+    </div>
+    <div class="W_VacancyCardTitleAndLocation">
+      <p class="A_VacancyCardTitle">
+        <%= employment_opportunity.title %>
+      </p>
+      <p class="A_VacancyCardLocation">
+        <%= "#{employment_opportunity.location}, #{employment_opportunity.work_environment}" %>
+      </p>
+    </div>
   </div>
   <div>
   </div>

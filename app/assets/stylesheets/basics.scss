@@ -4,6 +4,7 @@
 $headerHeight: 66px;
 $lightGray: #1F1F23;
 $hoverColor: #32333A;
+$hoverColorWhite: #e9e9e9;
 $secondaryText: #8F8F91;
 body{
     margin: 0;
@@ -420,7 +421,79 @@ a:visited{
         }
     }
 }
-.C_VacancyCard{
+.SO_Vacancies{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.O_TelegramBanner{
+    background-image: url('/uploads/TelegramBanner.png');
+    width: 100%;
+    height: 550px;
+    background-color: $lightGray;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 47px 50px;
+    justify-content: flex-end;
+}
+.C_BannerContentText{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.W_TelegramBannerContent{
+    display: flex;
+    flex-direction: column;
+    width: 688px;
+    gap: 44px;
+}
+.A_BannerTitle{
+    color: white;
+    font-family: Suisse Intl;
+    font-weight: 900;
+    font-size: 60px;
+}
+.A_BannerLink{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    padding: 24px 17px;
+    background-color: white;
+    width: 282px;
+    border-radius: 12px;
+    cursor: pointer;
+    &:hover{
+        background-color: $hoverColorWhite;
+
+    }
+}
+.A_BannerLinkTitle{
+    color: black;
+    font-size: 24px;
+    font-family: Suisse Intl;
+    font-weight: 400;
+}
+.O_Vacancies{
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-auto-columns: 1fr;
+    grid-auto-flow: row;
+    max-width: 100%;
+    display: grid;
+}
+.M_VacancyCard{
+    box-sizing: border-box;
+    width: 100%;
+    height: 253px;
+    min-width: 384px;
     display: flex;
     flex-direction: column;
     background-color: $lightGray;
@@ -431,6 +504,11 @@ a:visited{
     &:hover{
         background-color: $hoverColor;
     }
+}
+.C_VacancyInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
 }
 .W_VacancyCardNameAndDate{
     display: flex;
