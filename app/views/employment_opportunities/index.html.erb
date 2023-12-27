@@ -1,0 +1,15 @@
+<h1>Employment Opportunities</h1>
+<div class="employment-opportunities">
+  <% @employmentOpportunities.each do |employment_opportunity| %>
+    <div class="employment-opportunity">
+      <h2><%= link_to employment_opportunity.title, employment_opportunity_path(employment_opportunity) %></h2>
+      <p><%= truncate(employment_opportunity.description, length: 150) %></p>
+      <span><strong>Type:</strong> <%= employment_opportunity.vacancy_type %></span>
+      <span><strong>Location:</strong> <%= employment_opportunity.location %></span>
+      <% if employment_opportunity.application_deadline %>
+        <span><strong>Deadline:</strong> <%= employment_opportunity.application_deadline.strftime("%B %d, %Y") %></span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= link_to 'Add New Opportunity', new_employment_opportunity_path, class: 'btn btn-primary' %>

@@ -15,7 +15,7 @@
   </div>
   <% if can? :manage, post%>
     <div>
-      <%= link_to "Edit this post", edit_post_path(post) %>
+      <%= link_to "Edit this post", edit_profile_post_path(post) %>
     </div>
   <% end %>
   <div class="replies">

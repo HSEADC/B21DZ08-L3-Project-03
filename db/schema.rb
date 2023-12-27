@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_16_222325) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_27_155705) do
+  create_table "employment_opportunities", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "vacancy_type"
+    t.integer "user_id", null: false
+    t.string "status"
+    t.date "application_deadline"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.string "work_environment"
+    t.index ["user_id"], name: "index_employment_opportunities_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "type"
     t.string "post_title"
@@ -56,4 +71,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_16_222325) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "employment_opportunities", "users"
 end

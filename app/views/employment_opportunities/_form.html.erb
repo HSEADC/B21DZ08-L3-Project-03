@@ -1,0 +1,40 @@
+<%= form_with(model: [:profile, profile, post], url: url) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    type
+    <%= form.label :type, style: "display: block" %>
+    <%= form.select :type, ["TextPost", "ImagePost", "FigmaPost", "VideoPost"]%>
+  </div>
+  <div>
+    title
+    <%= form.label :post_title, style: "display: block" %>
+    <%= form.text_field :post_title %>
+  </div>
+  <div>
+    pic
+    <%= form.label :pic, style: "display: block" %>
+    <%= form.file_field :pic %>
+  </div>
+  <div>
+    description
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    link
+    <%= form.label :link, style: "display: block" %>
+    <%= form.text_field :link %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

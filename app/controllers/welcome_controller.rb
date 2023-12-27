@@ -11,4 +11,7 @@ class WelcomeController < ApplicationController
     6.times {@colors << options.sample}
     @subscription = Subscription.new
   end
+  def employment_opportunities
+    @employmentOpportunities = EmploymentOpportunity.all
+  end
 end

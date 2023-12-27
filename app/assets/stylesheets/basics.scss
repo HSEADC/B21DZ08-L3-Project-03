@@ -4,6 +4,7 @@
 $headerHeight: 66px;
 $lightGray: #1F1F23;
 $hoverColor: #32333A;
+$secondaryText: #8F8F91;
 body{
     margin: 0;
     padding: 0;
@@ -149,6 +150,7 @@ body{
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
+    
     gap: 20px;
     height: 1400px;
     .post_card{
@@ -417,6 +419,51 @@ a:visited{
             background-color: $hoverColor;
         }
     }
+}
+.C_VacancyCard{
+    display: flex;
+    flex-direction: column;
+    background-color: $lightGray;
+    padding: 24px 26px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover{
+        background-color: $hoverColor;
+    }
+}
+.W_VacancyCardNameAndDate{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.W_VacancyCardTitleAndLocation{
+    display: flex;
+    flex-direction: column;
+}
+.A_VacancyCardTitle{
+    font-size: 24px;
+    color: white;
+}
+.A_VacancyCardLocation{
+    font-size: 18px;
+    color: $secondaryText;
+}
+.A_VacancyCardName{
+    font-size: 18px;
+    color: white;
+}
+.A_VacancyCardDate{
+    font-size: 18px;
+    color: $secondaryText;
+}
+.Q_Dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50px;
+    background-color: #8F8F91;
+    
 }
 .A_Card{
         position: absolute;

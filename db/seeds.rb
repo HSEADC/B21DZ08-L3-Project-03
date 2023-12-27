@@ -1,4 +1,15 @@
 @raw_text = "Дом Наркомфина — один из знаковых памятников архитектуры советского авангарда и конструктивизма. Построен в 1928—1930 годах по проекту архитекторов Моисея Гинзбурга, Игнатия Милиниса и инженера Сергея Прохорова для работников Народного комиссариата финансов СССР (Наркомфина). Автор замысла дома Наркомфина Гинзбург определял его как «опытный дом переходного типа». Дом находится в Москве по адресу: Новинский бульвар, дом 25, корпус 1. С начала 1990-х годов дом находился в аварийном состоянии, был трижды включён в список «100 главных зданий мира, которым грозит уничтожение». В 2017—2020 годах отреставрирован по проекту АБ «Гинзбург Архитектс», функционирует как элитный жилой дом. Отдельно стоящий «Коммунальный блок» (историческое название) планируется как место проведения публичных мероприятий."
+@companies = [
+  "Yandex", "VK", "Mail.Ru Group", "Kaspersky Lab", "Avito",
+  "Tinkoff Bank", "Sberbank Technology", "ABBYY", "1C Company", "Rambler",
+  "Gazprom Neft", "Luxoft", "EPAM Systems", "Rozum Robotics",
+  "Game Insight", "Nival", "JetBrains", "Qiwi", "Parallels", "Skolkovo Foundation",
+  "Alawar Entertainment", "Acronis", "Crello", "Auriga", "IT Territory",
+  "Playrix", "Ivideon", "Reksoft", "Artezio", "Axmor Software",
+  "SimbirSoft", "iSpring Solutions", "Badoo", "G5 Entertainment", "Herocraft",
+  "ZYTOV Design Studio", "Art. Lebedev Studio", "Redmadrobot", "FIRMA Agency", "Heads and Hands", "HSE ART AND DESIGN", "ГК Самолет"
+]
+
 @words = @raw_text.downcase.gsub(/[—.—,«»:()]/, '').gsub(/  /, ' ').split(' ')
 def seed
     reset_db
@@ -7,6 +18,7 @@ def seed
     fill_profiles
     create_posts(2, 8)
     create_post_replies(500, 1000)
+    create_vacancies(100)
   end
 def reset_db
     Rake::Task['db:drop'].invoke
@@ -65,11 +77,26 @@ def create_users
 def create_posts(x, y)
     user = User.all.sample
     Profile.all.each do |profile|
-    (x..y).to_a.sample.times do
-        post = Post.create(profile_id: profile.id, description: create_sentence(2, 5), post_title: create_sentence(1, 1), pic: upload_random_image,user_id: user.id)
-        puts "Post with id #{post.id} associated with profile id #{post.profile.id}"
+      (x..y).to_a.sample.times do
+          post = Post.create(profile_id: profile.id, description: create_sentence(2, 5), post_title: create_sentence(1, 1), pic: upload_random_image,user_id: user.id)
+          puts "Post with id #{post.id} associated with profile id #{post.profile.id}"
+      end
     end
 end
+def create_vacancies(quantity)
+  quantity.times do |x|
+    x = EmploymentOpportunity.create(
+      title: create_sentence(1, 1),
+      vacancy_type: ["part-time", "intern", "full-time"].sample,
+      user_id: User.all.sample.id,
+      status: ["open", "closed"].sample,
+      application_deadline: Date.today + rand(30).days,
+      description: create_sentence(20, 25),
+      location: create_sentence(1, 2),
+      company_name: @companies.sample,
+      work_environment: create_sentence(1, 2))
+      puts "Employment opportunity with id #{x.id} has been created"
+  end
 end
 def create_post_replies(x, y)
     (x..y).to_a.sample.times do

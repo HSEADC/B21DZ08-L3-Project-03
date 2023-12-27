@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :profile, dependent: :destroy
   has_many :posts
+  has_many :employmentOpportunities
   after_create :create_user_profile
   def create_user_profile
     full_name = "#{name} #{surname}"

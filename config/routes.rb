@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :subscriptions, only: [:create, :show]
+  resources :employment_opportunities
+
   resources :profiles do 
     resources :posts
   end
+  
   get 'welcome/index'
   get 'welcome/about'
+  get 'welcome/employment_opportunity'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

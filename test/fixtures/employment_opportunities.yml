@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  vacancy_type: MyString
+  user: one
+  status: MyString
+  application_deadline: 2023-12-27
+  location: MyString
+
+two:
+  title: MyString
+  description: MyText
+  vacancy_type: MyString
+  user: two
+  status: MyString
+  application_deadline: 2023-12-27
+  location: MyString

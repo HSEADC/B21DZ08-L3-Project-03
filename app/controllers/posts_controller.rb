@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post, only: %i[ show edit update destroy ]
   # before_action :set_profile, only: %i[ show new edit create update destroy ]
 
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
+        format.html { redirect_to profile_url(@post.profile), notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -98,6 +99,6 @@ class PostsController < ApplicationController
         p = params.require(:figma_post)
       end
 
-      p.permit(:post_title, :pic, :description, :link, :type).merge(user_id: current_user.id)
+      p.permit(:post_title, :pic, :description, :link, :type).merge(user_id: current_user.id, profile_id: params[:profile_id])
     end
 end

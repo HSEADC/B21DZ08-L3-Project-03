@@ -7,6 +7,9 @@ class Ability
     if user && user.admin == true
     can :manage, :all
   end
+    if user
+    can :manage, :all
+  end
   # if user
   #   can :manage, Post, user_id: user.id
   #   can :manage, Profile, user_id: user.id
