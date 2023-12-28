@@ -1,22 +1,88 @@
 <div class="SO_VacancyPage">
   <div class="O_VacancyPageInfo">
-    <div class="O_VacancyPageCard">
-      <p></p>
-      <div>
-        <div>
-          <div class="A_VacancyChips"></div>
-          <% if @employment_opportunity.vacancy_type.present? %>
-            <div class="A_VacancyChips Primary">
+    <div class="O_VacancyPageCard U_Openning">
+      <p class="A_VacancyPageTitle"><%= @employment_opportunity.title %></p>
+      <div class="W_VacancyChipsAndDate">
+        <div class="C_VacancyChips">
+          <% if @employment_opportunity.salary.present? %>
+            <div class="A_VacancyChips">
+              <p>
+                <%=  @employment_opportunity.salary%> ₽
+              </p>
             </div>
-          <% end %>
+          <% end%>
+          <div class="A_VacancyChips U_<%= @employment_opportunity.vacancy_type %>">
+            <p>
+              <%= I18n.t("vacancy_types.#{@employment_opportunity.vacancy_type}", locale: :ru) %>
+            </p>
+          </div>
+          <div></div>
         </div>
-        <p>Опубликована 3 дня назад</p>
+        <p class="A_VacancyCardDate">
+          <% I18n.with_locale(:ru) do %>
+            Опубликовано <%= time_ago_in_words(@employment_opportunity.created_at) %> назад
+          <% end %>
+        </p>
       </div>
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div class="O_VacancyPageCard">
+      <p class="A_VacancyPageCardTitle">Формат</p>
+      <ul>
+        <li>
+          <%= "#{@employment_opportunity.location}, #{@employment_opportunity.work_environment}" %>
+        </li>
+      </ul>
+    </div>
+    <div class="O_VacancyPageCard">
+      <p class="A_VacancyPageCardTitle">Какие задачи нужно выполнять?</p>
+      <ul>
+        <% @employment_opportunity.description.split("\n").each do |line| %>
+          <li>
+            <%= line %>
+          </li>
+        <% end%>
+      </ul>
+    </div>
+    <div class="O_VacancyPageCard">
+      <p class="A_VacancyPageCardTitle">Что мы требуем?</p>
+      <ul>
+        <% @employment_opportunity.requirements.split("\n").each do |line| %>
+          <li>
+            <%= line %>
+          </li>
+        <% end%>
+      </ul>
+    </div>
+    <div class="O_VacancyPageCard">
+      <p class="A_VacancyPageCardTitle">Какие условия?</p>
+      <ul>
+        <% @employment_opportunity.conditions.split("\n").each do |line| %>
+          <li>
+            <%= line %>
+          </li>
+        <% end%>
+      </ul>
+    </div>
   </div>
-  <div class="O_VacancyCompanyInfo"></div>
+  <div class="O_VacancyCompanyInfo">
+    <%= link_to "Назад", employment_opportunities_path, class:"A_ButtonLink U_NoIcon" %>
+    <% if user_signed_in? && (current_user.admin? || current_user == @employment_opportunity.user) %>
+      <%= link_to 'Редактировать', edit_employment_opportunity_path(@employment_opportunity), class: 'A_ButtonLink U_NoIcon' %>
+    <% end %>
+    <div class="M_VacancyCompanyInfoMenu">
+      <div class="W_VacancyCompanyInfoContent">
+        <div class="C_VacancyCompanyInfoText">
+          <p class="A_VacancyCompanyTitle">Компания</p>
+          <p class="A_VacancyPageCardTitle"><%= @employment_opportunity.company_name %></p>
+        </div>
+        <p class="A_CompanyDescription">Первое российское агентство сервисного дизайна, основанное в 1998 году, а потом здесь ещё крутой текст.</p>
+      </div>
+      <div class="C_ButtonLinks">
+        <a href="<%= @employment_opportunity.about_link%>" class="A_ButtonLink">Подробнее о компании         <img src="/uploads/link.svg" alt=""></a>
+      </a>
+      <a href="<%= @employment_opportunity.contact_link %>" class="A_ButtonLink U_Primary">Контакт для отклика         <img src="/uploads/link.svg" alt=""></a>
+    </a>
+  </div>
+</div>
+</div>
 </div>

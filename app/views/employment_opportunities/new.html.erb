@@ -1,3 +1,4 @@
-<h1>New post</h1>
-<%= render "form", profile: @profile, post: @post, url: nil %>
-<br>
+<h1>New Employment Opportunity</h1>
+<%= link_to 'Back to All Employment Opportunities', employment_opportunities_path, class: 'btn btn-secondary' %>
+<%= render 'form', employment_opportunity: @employment_opportunity %>
+<%= link_to 'Cancel', employment_opportunities_path, class: 'btn btn-warning' %>

@@ -5,7 +5,14 @@ $headerHeight: 66px;
 $lightGray: #1F1F23;
 $hoverColor: #32333A;
 $hoverColorWhite: #e9e9e9;
+$internBackground: #92FF38;
+$fullTimeBackground: #4DE87D;
+$partTimeBackground: #47E8CE;
 $secondaryText: #8F8F91;
+$paddingTop: 100px;
+$secondaryButtonColor: #3C3C43;
+$secondaryButtonColorHover: #2D2D33;
+$primaryButtonColorHover: #D7D7D7;
 body{
     margin: 0;
     padding: 0;
@@ -188,7 +195,7 @@ nav{
 }
 p, h1, h2, h3, a{
     all: unset;
-    font-family: Suisse Intl;
+    font-family: Suisse Intl !important;
     color: #fff;
 }
 .post
@@ -296,6 +303,50 @@ a:visited{
         width: 100%;
     }
 }
+.C_VacancyChips{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+ul{
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+li{
+    color: #8F8F91;
+    font-family: Suisse Intl;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 26px */
+}
+.A_VacancyPageCardTitle{
+    color: white;
+}
+.A_VacancyChips{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 18px;
+    padding: 4px 12px;
+    background-color: $secondaryButtonColor;
+    border-radius: 8px;
+    height: 29px;
+    &.U_full-time{ background-color: $fullTimeBackground; p{color: $lightGray;}}
+    &.U_part-time{background-color: $partTimeBackground; p{color: $lightGray;}}
+    &.U_intern{background-color: $internBackground; p{color: $lightGray;}}
+    p{
+        box-sizing: border-box;
+        height: fit-content;
+        width: fit-content;
+        font-family: Suisse Intl;
+        font-size: 18px;
+        color: white;
+    }
+}
 .A_Factoid{
     border-radius: 24px;
     background-color: $lightGray;
@@ -388,6 +439,84 @@ a:visited{
         visibility:visible;
     }
 }
+.O_NewForm{
+    display: flex;
+    width: 516px;
+    gap: 27px;
+    flex-direction: column;
+}
+.A_Input{
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: $lightGray;
+    color: white;
+    height: 50px;
+    border-radius: 12px;
+    padding: 12px 21px;
+    font-family: Suisse Intl;
+    font-size: 18px;
+    line-height: 143%; /* 25.74px */
+}
+.A_FormLabel{
+    color: #FFF;
+font-family: Suisse Intl;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 140%; 
+span{
+    color: $fullTimeBackground;
+}
+}
+.W_FormRadio{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.A_RadioButton{
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: flex-start;
+    background-color: transparent;
+    border: 2px solid $lightGray;
+    &:hover{
+        background-color: $hoverColor;
+    }
+    &.active{
+        border: 2px solid $fullTimeBackground;
+        .Q_Circle{
+            border: 2px solid $fullTimeBackground;
+        }        
+    }
+}
+.Q_Circle{
+    border: 2px solid $lightGray;
+    border-radius: 1000px;
+    width: 24px;
+    height: 24px;
+    aspect-ratio: 1/1;
+}
+.U_RealRadioButton{
+    all: unset;
+    opacity: 0;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    background-color: red;
+    color: red;
+    &:checked{
+        background-color: #4FE75D;
+    }
+}
 .Q_Peak{
     box-sizing: border-box;
 }
@@ -421,11 +550,121 @@ a:visited{
         }
     }
 }
+.SO_VacancyPage{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    .C_VacancyChips{
+        gap: 16px;
+    }
+    .A_VacancyCardDate{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        font-size: 20px;
+    }
+    .A_VacancyChips{
+        padding: 6px 20px;
+        height: fit-content;
+        p{
+            font-size: 30px;
+        }
+    }
+}
+.C_ButtonLinks{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 12px;
+}
+.O_VacancyCompanyInfo{
+    display: flex;
+    position: sticky;
+    top: $paddingTop;
+    border-radius: 12px;
+    flex-direction: column;
+    height: fit-content;
+    gap: 20px;
+}
+.A_ButtonLink{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $secondaryButtonColor;
+    color: white;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    justify-items: center;
+    transition: all 0.1s;
+    img{
+        filter: brightness(100);
+    }
+    &:hover{
+        background-color: $secondaryButtonColorHover;
+    }
+    &.U_NoIcon{
+        height: 30px;
+        justify-content: center;
+    }
+    &.U_Primary{
+        img{
+            filter: brightness(0);
+        }    
+        background-color: white;
+        color: black;    
+        &:hover{
+            background-color: $primaryButtonColorHover;
+        }    
+    }
+}
+.M_VacancyCompanyInfoMenu{
+    display: flex;
+    flex-direction: column;
+    padding: 25px 28px;
+    gap: 30px;
+    border-radius: 12px;
+    background-color: $lightGray;
+}
+.O_VacancyPageCard{
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    background-color: $lightGray;
+    width: 100%;
+    border-radius: 12px;
+    padding: 28px 22px;
+    height: fit-content;
+    &.U_Openning{
+        gap: 60px;
+    }
+}
+.O_VacancyPageInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.W_VacancyChipsAndDate{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .SO_Vacancies{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+.A_VacancyPageTitle{
+    width: 80%;
+    font-size: 60px;
+    color: white;
+    font-weight: 500;
 }
 .O_TelegramBanner{
     background-image: url('/uploads/TelegramBanner.png');
@@ -482,18 +721,39 @@ a:visited{
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     grid-auto-rows: minmax(min-content, max-content);
     grid-auto-columns: 1fr;
     grid-auto-flow: row;
     max-width: 100%;
     display: grid;
 }
+.A_VacancyCompanyTitle{
+    font-size: 14px;
+}
+.A_CompanyDescription{
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+}
+.W_VacancyCompanyInfoContent{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.C_VacancyCompanyInfoText{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    .A_VacancyPageCardTitle{
+        font-size: 18px;
+    }
+}
 .M_VacancyCard{
     box-sizing: border-box;
     width: 100%;
     height: 253px;
-    min-width: 384px;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
     background-color: $lightGray;
@@ -510,13 +770,24 @@ a:visited{
     flex-direction: column;
     gap: 22px;
 }
-.W_VacancyCardNameAndDate{
+.W_DotWithDate{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
+    .Q_Dot{
+        margin-top: 2px;
+    }
+}
+.W_VacancyCardNameAndDate{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
 }
 .W_VacancyCardTitleAndLocation{
+    gap: 12px;
     display: flex;
     flex-direction: column;
 }

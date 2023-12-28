@@ -4,10 +4,14 @@
       <p class="A_VacancyCardName">
         <%= employment_opportunity.company_name %>
       </p>
-      <div class="Q_Dot"></div>
-      <p class="A_VacancyCardDate">
-        <%= employment_opportunity.created_at %>
-      </p>
+      <div class="W_DotWithDate">
+        <div class="Q_Dot"></div>
+        <p class="A_VacancyCardDate">
+          <% I18n.with_locale(:ru) do %>
+            <%= time_ago_in_words(employment_opportunity.created_at) %> назад
+          <% end %>
+        </p>
+      </div>
     </div>
     <div class="W_VacancyCardTitleAndLocation">
       <p class="A_VacancyCardTitle">
@@ -18,7 +22,20 @@
       </p>
     </div>
   </div>
-  <div>
+  <div class="C_VacancyChips">
+    <% if employment_opportunity.salary.present? %>
+      <div class="A_VacancyChips">
+        <p>
+          <%=  employment_opportunity.salary%> ₽
+        </p>
+      </div>
+    <% end%>
+    <div class="A_VacancyChips U_<%= employment_opportunity.vacancy_type %>">
+      <p>
+        <%= I18n.t("vacancy_types.#{employment_opportunity.vacancy_type}", locale: :ru) %>
+      </p>
+    </div>
+    <div></div>
   </div>
 <% end%>
 <% if can? :manage, employment_opportunity%>

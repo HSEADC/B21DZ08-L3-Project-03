@@ -1,2 +1,10 @@
-<h1>Editing post</h1>
-<%= render "form", profile: @profile, post: @post, url: admin_post_url(@post) %>
+<!-- app/views/employment_opportunities/edit.html.erb -->
+<%# Page Title %>
+<h1>Edit Employment Opportunity</h1>
+<%# Link to go back to the show page or the index page %>
+<%= link_to 'Back to Employment Opportunity', employment_opportunity_path(@employment_opportunity), class: 'btn btn-secondary' %>
+<%= link_to 'Back to All Employment Opportunities', employment_opportunities_path, class: 'btn btn-secondary' %>
+<%# Render the form partial %>
+<%= render 'form', employment_opportunity: @employment_opportunity %>
+<%# Optionally, include a link to delete the record %>
+<%= link_to 'Delete Employment Opportunity', employment_opportunity_path(@employment_opportunity), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

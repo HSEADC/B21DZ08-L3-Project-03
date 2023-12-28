@@ -1,0 +1,14 @@
+ru:
+  vacancy_types:
+    part-time: "Парт-тайм"
+    intern: "Стажировка"
+    full-time: "Фултайм"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "1 час"  # instead of "около 1 часа"
+        other: "%{count} часа"  # adjust as needed
+      x_minutes:
+        one: "1 минута"
+        other: "%{count} минут"
+      # ... (other time distance translations)

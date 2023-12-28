@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_27_155705) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_28_185038) do
   create_table "employment_opportunities", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -23,6 +23,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_27_155705) do
     t.datetime "updated_at", null: false
     t.string "company_name"
     t.string "work_environment"
+    t.string "salary"
+    t.text "requirements"
+    t.text "conditions"
+    t.string "contact_link"
+    t.string "about_link"
     t.index ["user_id"], name: "index_employment_opportunities_on_user_id"
   end
 

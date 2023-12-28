@@ -1,40 +1,109 @@
-<%= form_with(model: [:profile, profile, post], url: url) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_with(model: @employment_opportunity, local: true, class:"O_NewForm") do |form| %>
+  <% if employment_opportunity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employment_opportunity.errors.count, "error") %> prohibited this employment opportunity from being saved:</h2>
       <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% employment_opportunity.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <div>
-    type
-    <%= form.label :type, style: "display: block" %>
-    <%= form.select :type, ["TextPost", "ImagePost", "FigmaPost", "VideoPost"]%>
+  <div class="W_FormRadio">
+    <p class="A_FormLabel">Тип вакансии <span>*</span></p>
+    <div class="A_Input A_RadioButton">
+      <div class="Q_Circle"></div>
+      <%= form.label :vacancy_type_full_time, 'Фултайм' %>
+      <%= form.radio_button :vacancy_type, 'full-time', id: :vacancy_type_full_time, class:"U_RealRadioButton" %>
+    </div>
+    <div class="A_Input A_RadioButton">
+      <div class="Q_Circle"></div>
+      <%= form.label :vacancy_type_part_time, 'Парт-тайм' %>
+      <%= form.radio_button :vacancy_type, 'part-time', id: :vacancy_type_part_time, class:"U_RealRadioButton" %>
+    </div>
+    <div class="A_Input A_RadioButton">
+      <div class="Q_Circle"></div>
+      <%= form.label :vacancy_type_intern, 'Стажировка' %>
+      <%= form.radio_button :vacancy_type, 'intern', id: :vacancy_type_intern, class:"U_RealRadioButton" %>
+    </div>
   </div>
-  <div>
-    title
-    <%= form.label :post_title, style: "display: block" %>
-    <%= form.text_field :post_title %>
-  </div>
-  <div>
-    pic
-    <%= form.label :pic, style: "display: block" %>
-    <%= form.file_field :pic %>
-  </div>
-  <div>
-    description
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    link
-    <%= form.label :link, style: "display: block" %>
-    <%= form.text_field :link %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  <div class="field">
+    <p class="A_FormLabel">Название вакансии <span>*<span></p>
+        <%= form.text_field :title, class:"A_Input" %>
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Локация <span>*<span></p>
+            <%= form.text_field :location, class: 'A_Input' %>
+          </div>
+          <div class="field">
+            <p class="A_FormLabel">Какой формат работы? <span>*<span></p>
+                <%= form.text_field :work_environment, class: 'A_Input' %>
+              </div>
+              <div class="field">
+                <div class="W_FormRadio">
+                  <p class="A_FormLabel">Какой формат работы? <span>*</span></p>
+                  <div class="A_Input A_RadioButton">
+                    <div class="Q_Circle"></div>
+                    <%= form.label :vacancy_type_full_time, 'Удаленно' %>
+                    <%= form.radio_button :work_environment, 'Удаленно', id: :vacancy_type_full_time, class:"U_RealRadioButton" %>
+                  </div>
+                  <div class="A_Input A_RadioButton">
+                    <div class="Q_Circle"></div>
+                    <%= form.label :vacancy_type_part_time, 'Офис' %>
+                    <%= form.radio_button :work_environment, 'Офис', id: :vacancy_type_part_time, class:"U_RealRadioButton" %>
+                  </div>
+                  <div class="A_Input A_RadioButton">
+                    <div class="Q_Circle"></div>
+                    <%= form.label :vacancy_type_intern, 'Удаленно или офис' %>
+                    <%= form.radio_button :work_environment, 'Удаленно или офис', id: :vacancy_type_intern, class:"U_RealRadioButton" %>
+                  </div>
+                  <div class="A_Input A_RadioButton">
+                    <div class="Q_Circle"></div>
+                    <%= form.label :vacancy_type_intern, 'Гибрид' %>
+                    <%= form.radio_button :work_environment, 'Гибрид', id: :vacancy_type_intern, class:"U_RealRadioButton" %>
+                  </div>
+                </div>
+                <p class="A_FormLabel">Зарплата <span>*<span></p>
+                    <%= form.text_field :salary, class:"A_Input" %>
+                  </div>
+                  <div class="field">
+                    <p class="A_FormLabel">Какие будут задачи? <span>*<span></p>
+                        <%= form.text_area :description, class:"A_Input" %>
+                      </div>
+                      <div class="field">
+                        <p class="A_FormLabel">Название компании <span>*<span></p>
+                            <%= form.text_field :status, class: 'A_Input' %>
+                          </div>
+                          <div class="field">
+                            <p class="A_FormLabel">Название компании <span>*<span></p>
+                                <%= form.date_select :application_deadline, class:"A_Input" %>
+                              </div>
+                              <div class="field">
+                                <p class="A_FormLabel">Название компании <span>*<span></p>
+                                    <%= form.text_field :company_name, class: 'A_Input' %>
+                                  </div>
+                                </div>
+                                <div class="field">
+                                  <p class="A_FormLabel">Какие требования? <span>*<span></p>
+                                      <%= form.text_area :requirements, class:"A_Input" %>
+                                    </div>
+                                    <div class="field">
+                                      <p class="A_FormLabel">Название компании <span>*<span></p>
+                                          <%= form.text_area :conditions, class:"A_Input" %>
+                                        </div>
+                                        <div class="field">
+                                          <p class="A_FormLabel">Ссылка для отклика <span>*<span></p>
+                                              <%= form.text_field :contact_link, class: 'A_Input' %>
+                                            </div>
+                                            <div class="field">
+                                              <p class="A_FormLabel">Ссылка на компанию</p>
+                                              <%= form.text_field :about_link, class: 'A_Input' %>
+                                            </div>
+                                            <div class="actions">
+                                              <%= form.submit %>
+                                            </div>
+                                          <% end %>
+                                          <script>
+                                            document
+                                              console.log("hello")
+                                          </script>
