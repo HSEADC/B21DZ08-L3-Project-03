@@ -1,20 +1,22 @@
-<div class="employment-opportunity-details">
-  <h1><%= @employment_opportunity.title %></h1>
-  <p><strong>Description:</strong> <%= @employment_opportunity.description %></p>
-  <% if @employment_opportunity.vacancy_type.present? %>
-    <p><strong>Type:</strong> <%= @employment_opportunity.vacancy_type %></p>
-  <% end %>
-  <% if @employment_opportunity.application_deadline %>
-    <p><strong>Application Deadline:</strong> <%= @employment_opportunity.application_deadline.strftime("%B %d, %Y") %></p>
-  <% end %>
-  <% if @employment_opportunity.location.present? %>
-    <p><strong>Location:</strong> <%= @employment_opportunity.location %></p>
-  <% end %>
-  <% if @employment_opportunity.status.present? %>
-    <p><strong>Status:</strong> <%= @employment_opportunity.status.capitalize %></p>
-  <% end %>
-  <% if can?(:edit, @employment_opportunity) %>
-    <%= link_to 'Edit this Employment Opportunity', edit_employment_opportunity_path(@employment_opportunity) %>
-  <% end %>
-  <%= link_to 'Назад к вакансиям', employment_opportunities_path, class: 'btn btn-primary' %>
+<div class="SO_VacancyPage">
+  <div class="O_VacancyPageInfo">
+    <div class="O_VacancyPageCard">
+      <p></p>
+      <div>
+        <div>
+          <div class="A_VacancyChips"></div>
+          <% if @employment_opportunity.vacancy_type.present? %>
+            <div class="A_VacancyChips Primary">
+            </div>
+          <% end %>
+        </div>
+        <p>Опубликована 3 дня назад</p>
+      </div>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="O_VacancyCompanyInfo"></div>
 </div>
