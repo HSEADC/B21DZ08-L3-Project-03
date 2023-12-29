@@ -117,8 +117,7 @@ def seed
     create_users
     fill_profiles
     create_posts(2, 8)
-    create_post_replies(500, 1000)
-    create_vacancies(0)
+    create_vacancies(100)
   end
 def reset_db
     Rake::Task['db:drop'].invoke

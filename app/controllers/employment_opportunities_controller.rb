@@ -8,7 +8,6 @@ class EmploymentOpportunitiesController < ApplicationController
       def new
         @employment_opportunity = EmploymentOpportunity.new
       end
-    
       def create
         Rails.logger.debug "Form submitted with params: #{params.inspect}"
         @employment_opportunity = EmploymentOpportunity.new(employment_opportunity_params)
@@ -20,7 +19,12 @@ class EmploymentOpportunitiesController < ApplicationController
           render :new
         end
       end
-                    
+      def destroy
+        @employment_opportunity = EmploymentOpportunity.find(params[:id])
+        @employment_opportunity.destroy
+      
+        redirect_to employment_opportunities_path, notice: 'Employment opportunity was successfully deleted.'
+      end                     
       def edit
         @employment_opportunity = EmploymentOpportunity.find(params[:id])
       end

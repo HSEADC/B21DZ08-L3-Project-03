@@ -13,6 +13,10 @@ $paddingTop: 100px;
 $secondaryButtonColor: #3C3C43;
 $secondaryButtonColorHover: #2D2D33;
 $primaryButtonColorHover: #D7D7D7;
+:root {
+    --bodyWidth: 1520px;
+    --gridColumns: 1fr 1fr 1fr;
+  }  
 body{
     margin: 0;
     padding: 0;
@@ -21,12 +25,19 @@ body{
     align-content: center;
     align-items: center;
     flex-direction: column;
-    width: 1520px;
+    width: var(--bodyWidth);
     margin: 0 auto;
     max-width: 100vw;
     background-color: #060606;
     overflow-x: hidden;
     position: relative;
+}
+input {
+    all: unset;
+    font-family: Suisse Intl;
+}
+button{
+    all: unset;
 }
 .post_card{
     overflow: hidden;
@@ -77,6 +88,7 @@ body{
         padding: 12px 16px;
         color: $lightGray;
         &:is(button){
+            font-family: Suisse Intl;
             background-color: red;
             color: white;
         }
@@ -181,7 +193,7 @@ nav{
     position: fixed;
     align-items: center;
     top: 18px;
-    width: 1520px;
+    width: var(--bodyWidth);
     max-width: 100%;
     height: $headerHeight;
     padding: 0 26px;
@@ -406,6 +418,14 @@ li{
         margin-bottom: -1px;
     }
 }
+.W_PaddingsForClipping{
+    padding: 60px 0 40%;
+    z-index: 0;
+    gap: 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .W_NavProfileWidget{
     display: flex;
     flex-direction: row;
@@ -439,11 +459,71 @@ li{
         visibility:visible;
     }
 }
+.SO_FormNew{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .A_ButtonLink{
+        &:is(button){
+            font-family: Suisse Intl;
+            color: white;
+        }
+        .U_NoIcon{
+            box-sizing: border-box;
+            height: 50px;
+            width: 100%;
+        }
+    }
+}
+.A_FormBackground{
+    pointer-events: none;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -9;
+    width: var(--bodyWidth);
+    background-color: $lightGray;
+    height: 80%;
+    border-radius: 12px;
+}
+.A_FormPaddings{
+    pointer-events: none;
+    width: 100%;
+    left: 0;
+    &.U_Top{
+        z-index: 10;
+        position: fixed;
+        height: $paddingTop;
+        top: 0;
+        background-color: #060606;
+    }
+    &.U_Bottom{
+        height: calc(100% - 80% - 100px);
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        background-color: #060606;
+    }
+}
 .O_NewForm{
     display: flex;
     width: 516px;
     gap: 27px;
     flex-direction: column;
+}
+.A_FormSectionTitle{
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+}
+.W_FormSection{
+    background-color: $lightGray;
+    border-radius: 12px;
+    padding: 26px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .A_Input{
     all: unset;
@@ -452,7 +532,7 @@ li{
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    background-color: $lightGray;
+    background-color: $secondaryButtonColor;
     color: white;
     height: 50px;
     border-radius: 12px;
@@ -460,6 +540,9 @@ li{
     font-family: Suisse Intl;
     font-size: 18px;
     line-height: 143%; /* 25.74px */
+}
+.A_TextArea{
+    height: 200px;
 }
 .A_FormLabel{
     color: #FFF;
@@ -487,9 +570,9 @@ span{
     gap: 12px;
     justify-content: flex-start;
     background-color: transparent;
-    border: 2px solid $lightGray;
+    border: 2px solid $secondaryButtonColor;
     &:hover{
-        background-color: $hoverColor;
+        background-color: $secondaryButtonColorHover;
     }
     &.active{
         border: 2px solid $fullTimeBackground;
@@ -499,7 +582,7 @@ span{
     }
 }
 .Q_Circle{
-    border: 2px solid $lightGray;
+    border: 2px solid $secondaryButtonColor;
     border-radius: 1000px;
     width: 24px;
     height: 24px;
@@ -592,6 +675,7 @@ span{
 }
 .A_ButtonLink{
     display: flex;
+    box-sizing: border-box;
     flex-direction: row;
     justify-content: space-between;
     background-color: $secondaryButtonColor;
@@ -609,7 +693,8 @@ span{
         background-color: $secondaryButtonColorHover;
     }
     &.U_NoIcon{
-        height: 30px;
+        width: 100%;
+        height: 50px;
         justify-content: center;
     }
     &.U_Primary{
@@ -621,6 +706,13 @@ span{
         &:hover{
             background-color: $primaryButtonColorHover;
         }    
+    }
+    &.U_Gradient{
+        font-size: 16px;
+        background: var(--Gradient-Prior, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));    
+        &:hover{
+            opacity: 0.5;
+        }
     }
 }
 .M_VacancyCompanyInfoMenu{
@@ -721,7 +813,7 @@ span{
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: var(--gridColumns) ;
     grid-auto-rows: minmax(min-content, max-content);
     grid-auto-columns: 1fr;
     grid-auto-flow: row;
@@ -1026,6 +1118,12 @@ p{
         display: flex;
         flex-direction: column;
         gap: 28px;
+        &.U_Fixed{
+            position: fixed;
+            bottom: 0;
+            width: var(--bodyWidth);
+            z-index: 9999999999989898989;
+        }
         .W_CardHolder{
             width: 100%;
             position: relative;
@@ -1110,14 +1208,14 @@ p{
     }
 }
 @media all and (max-width: 1680px) {
+    :root {
+        --bodyWidth: 1200px;
+      }      
     .W_CardFade{
         img{
             margin-bottom: -3px;
         }
     }    
-    body, nav{
-        width: 1200px;
-    }
     p{
         font-size: 20px;
     } 
@@ -1246,6 +1344,10 @@ p{
     }
 }
 @media all and (max-width: 1366px) {
+    :root {
+        --bodyWidth: 1000px;
+        --gridColumns: 1fr 1fr;
+      }      
     .A_Card{
         width: 730px;
     }
@@ -1254,9 +1356,6 @@ p{
             margin-bottom: -4px;
         }
     }    
-    body, nav{
-        width: 1000px;
-    }
     p{
         font-size: 18px;
     } 
@@ -1404,6 +1503,10 @@ p{
     
 }
 @media all and (max-width: 1100px) {
+    :root {
+        --bodyWidth: 700px;
+        --gridColumns: 1fr ;
+      }      
     .Mobile{
         display: block;
     }
@@ -1461,9 +1564,6 @@ p{
             margin-bottom: -7px;
         }
     }    
-    body, nav{
-        width: 700px;
-    }
     p{
         font-size: 20px;
     } 

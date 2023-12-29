@@ -1,4 +1,14 @@
-<h1>New Employment Opportunity</h1>
-<%= link_to 'Back to All Employment Opportunities', employment_opportunities_path, class: 'btn btn-secondary' %>
-<%= render 'form', employment_opportunity: @employment_opportunity %>
-<%= link_to 'Cancel', employment_opportunities_path, class: 'btn btn-warning' %>
+<div class="SO_FormNew">
+  <div class="A_FormPaddings U_Top"></div>
+  <div class="A_FormBackground">
+    <img src="/uploads/formLeftLine.svg" alt="" style="position: absolute; left: 0;">
+    <img src="/uploads/formRightLine.svg" alt="" style="position: absolute; right: 0;"></div>
+  <div class="A_FormPaddings U_Bottom"></div>
+  <div class="W_PaddingsForClipping">
+    <%= link_to 'Назад к вакансиям', employment_opportunities_path, class: 'A_ButtonLink U_NoIcon' %>
+    <%= render 'form', employment_opportunity: @employment_opportunity %>
+  </div>
+  <% content_for :custom_footer do %>
+    <%= render 'fixed_footer' %>
+  <% end %>
+</div>

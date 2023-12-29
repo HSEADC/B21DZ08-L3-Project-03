@@ -1,10 +1,16 @@
-<!-- app/views/employment_opportunities/edit.html.erb -->
-<%# Page Title %>
-<h1>Edit Employment Opportunity</h1>
-<%# Link to go back to the show page or the index page %>
-<%= link_to 'Back to Employment Opportunity', employment_opportunity_path(@employment_opportunity), class: 'btn btn-secondary' %>
-<%= link_to 'Back to All Employment Opportunities', employment_opportunities_path, class: 'btn btn-secondary' %>
-<%# Render the form partial %>
-<%= render 'form', employment_opportunity: @employment_opportunity %>
-<%# Optionally, include a link to delete the record %>
-<%= link_to 'Delete Employment Opportunity', employment_opportunity_path(@employment_opportunity), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<div class="SO_FormNew">
+  <div class="A_FormPaddings U_Top"></div>
+  <div class="A_FormBackground">
+    <img src="/uploads/formLeftLine.svg" alt="" style="position: absolute; left: 0;">
+    <img src="/uploads/formRightLine.svg" alt="" style="position: absolute; right: 0;"></div>
+  <div class="A_FormPaddings U_Bottom"></div>
+  <div class="W_PaddingsForClipping">
+    <%= link_to 'Назад к вакансии', employment_opportunity_path(@employment_opportunity), class: 'A_ButtonLink U_NoIcon' %>
+    <%= render 'form', employment_opportunity: @employment_opportunity %>
+    <%= button_to "Удалить вакансию", @employment_opportunity, method: :delete, class:"A_ButtonLink U_NoIcon"%>
+  </div>
+  <% content_for :custom_footer do %>
+    <%= render 'fixed_footer' %>
+  <% end %>
+</div>
+</div>
