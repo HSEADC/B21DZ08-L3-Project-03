@@ -3,7 +3,7 @@
     <%= image_tag image_post.link, class:["A_VerticallImage", "A_HorizontalImage", "A_SmallVerticallImage"].sample%>
   <% end %>
   <div class="textContainer">
-    <a href="<%= admin_post_path(image_post) %>">
+    <a href="<%= profile_post_path(image_post) %>">
       <%= image_post.post_title %>
     </a>
   </div>

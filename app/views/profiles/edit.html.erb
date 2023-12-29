@@ -1,31 +1,45 @@
-<%= form_with(model: @profile) do |form| %>
-  <% if @profile.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-      <ul>
-        <% @profile.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
-    <%= form.label :profile_pic, style: "display: block" %>
-    <%= form.text_field :profile_pic %>
+<div class="SO_FormNew">
+  <div class="A_FormPaddings U_Top"></div>
+  <div class="A_FormBackground">
+    <img src="/uploads/formLeftLine.svg" alt="" style="position: absolute; left: 0;">
+    <img src="/uploads/formRightLine.svg" alt="" style="position: absolute; right: 0;"></div>
+  <div class="A_FormPaddings U_Bottom"></div>
+  <div class="W_PaddingsForClipping">
+    <%= link_to 'Назад в профиль', current_user.profile, class: 'A_ButtonLink U_NoIcon' %>
+    <%= form_with(model: @profile, class:"O_NewForm") do |form|%>
+      <% if @profile.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+          <ul>
+            <% @profile.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field A_FakeAvatar">
+        <p class="A_FormLabel">Аватарка</p>
+        <%= form.file_field :profile_pic, class:"A_Input A_FileInput U_RealRadioButton"%>
+        <img src="<%= @profile.profile_pic %>" alt="" class="A_FakeProfilePicture">
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Никнейм</p>
+        <%= form.text_field :nick_name, class:"A_Input" %>
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Описание</p>
+        <%= form.text_area :description, class:"A_Input A_TextArea" %>
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Локация</p>
+        <%= form.text_field :location, class:"A_Input" %>
+      </div>
+      <div>
+        <%= form.submit "Сохранить", class: 'A_ButtonLink U_Gradient U_NoIcon' %>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= form.label :nick_name, style: "display: block" %>
-    <%= form.text_field :nick_name %>
-  </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
+</div>
+<% content_for :custom_footer do %>
+  <%= render 'fixed_footer' %>
 <% end %>

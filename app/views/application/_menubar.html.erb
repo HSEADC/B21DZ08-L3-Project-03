@@ -10,25 +10,22 @@
     <a href="https://t.me/adcoffer", target="_blank">канал</a>
   </div>
   <% if user_signed_in? && current_user.admin == true %>
-    <div>
-      <%= link_to "Profiles", admin_profiles_url %>
-      <%= link_to "Posts", admin_posts_url %>
-      <%= link_to "Subscriptions", admin_subscriptions_url %>
-      <%#= link_to current_user.email, edit_user_registration_path %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <div class="C_AdminNavLinks">
+      <%= link_to "Профили", admin_profiles_url %>
+      <%= link_to "Посты", admin_posts_url %>
+      <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%#= link_to "Log in", new_user_session_path %>
-      <%#= link_to "Register", new_user_registration_path %>
     </div>
   <% end %>
   <% if user_signed_in? && current_user.admin == false%>
-    <%# link_to "Профиль", profile_path(current_user.profile) %>
     <div class="W_NavProfileWidget">
       <%= link_to profile_path(current_user.profile), class: "M_NavProfile" do %>
         <div><%= "#{current_user.name} #{current_user.surname}" %></div>
         <img class="A_Pfp" src=<%= "#{current_user.profile.profile_pic}" %> alt="">
       <% end %>
-      <img class="A_NavProfileMenuToggler" src="/uploads/dropdown.svg" alt="">
+      <div class="A_Dropdown">
+        <img class="A_NavProfileMenuToggler" src="/uploads/dropdown.svg" alt="">
+      </div>
     </div>
     <div class="W_navProfileMenu">
       <div class="W_Peak">
@@ -40,7 +37,9 @@
       </div>
     </div>
   <% else %>
-    <%= link_to "Вход", new_user_session_path %>
+    <%  if user_signed_in? == false || current_user.admin != true%>
+      <%= link_to "Вход", new_user_session_path, class:"A_Enter"%>
+    <%  end%>
   <%end %>
 </nav>
 <script></script>

@@ -10,9 +10,9 @@
         <img src="/uploads/link.svg" alt=""></a>
     </div>
   </div>
-  <div>
+  <div class="SO_VacanciesAndButton">
     <% if user_signed_in? && current_user.admin? %>
-      <%= link_to 'Add New Opportunity', new_employment_opportunity_path, class:'btn btn-primary' %>
+      <%= link_to 'Добавить новую вакансию', new_employment_opportunity_path, class:'A_ButtonLink U_Gradient U_NoIcon' %>
     <% end %>
     <div class="O_Vacancies">
       <% EmploymentOpportunity.all.each do |x|%>

@@ -1,31 +1,45 @@
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
+<div class="SO_FormNew">
+  <div class="A_FormPaddings U_Top"></div>
+  <div class="A_FormBackground">
+    <img src="/uploads/formLeftLine.svg" alt="" style="position: absolute; left: 0;">
+    <img src="/uploads/formRightLine.svg" alt="" style="position: absolute; right: 0;"></div>
+  <div class="A_FormPaddings U_Bottom"></div>
+  <div class="O_SignUpForm">
+    <h1 class="A_FormTitle">Регистрация</h1>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'O_NewForm' }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="W_FieldsRow">
+        <div class="field">
+          <p class="A_FormLabel">Имя</p>
+          <%= f.text_field :name, autofocus: true,class:"A_Input", placeholder: "Николай" %>
+        </div>
+        <div class="field">
+          <p class="A_FormLabel">Фамилия</p>
+          <%= f.text_field :surname, class:"A_Input", placeholder: "Рептайл" %>
+        </div>
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Почта</p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"A_Input", placeholder: "example@email.com" %>
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Пароль</p>
+        <%= f.password_field :password, autocomplete: "new-password", class:"A_Input", placeholder: "• • • • • •"%>
+      </div>
+      <div class="field">
+        <p class="A_FormLabel">Подтвердите пароль</p>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"A_Input", placeholder: "• • • • • •" %>
+      </div>
+      <% if @minimum_password_length %>
+        <p class="A_Desciptor">Пароль должен содержать не менее <%= @minimum_password_length %> символов, хотя бы одну строчную, хотя бы одну прописную букву и хотя бы одну цифру, желательно добавить хотя бы один спецсимвол</p>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Зарегистрироваться", class:'A_ButtonLink U_Gradient U_NoIcon' %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
-  <div class="field">
-    <%= f.label :surname %>
-    <%= f.text_field :surname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
+  <% content_for :custom_footer do %>
+    <%= render 'fixed_footer' %>
+  <% end %>
+</div>

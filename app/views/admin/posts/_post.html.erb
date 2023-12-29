@@ -2,8 +2,9 @@
   <% if post.reply_to_post_id != nil %>
     <p> Ответ к посту #<%=  post.reply_to_post_id%></p>
   <% end %>
-  <% if post.pic.url %>
-    <%= image_tag post.pic.url, class:["A_VerticallImage", "A_HorizontalImage", "A_SmallVerticallImage"].sample%>
+  <% if post.pic? %>
+    <%= post.pic.url %>
+    <%= image_tag post.pic.url, class: "A_SmallVerticallImage" %>
   <% end %>
   <div class="textContainer">
     <p>

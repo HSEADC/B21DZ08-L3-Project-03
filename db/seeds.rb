@@ -9,6 +9,19 @@
   "SimbirSoft", "iSpring Solutions", "Badoo", "G5 Entertainment", "Herocraft",
   "ZYTOV Design Studio", "Art. Lebedev Studio", "Redmadrobot", "FIRMA Agency", "Heads and Hands", "HSE ART AND DESIGN", "ГК Самолет"
 ]
+@firstNames= [
+    "Николай", "Матвей", "Алексей", "Дмитрий", "Максим", 
+    "Иван", "Андрей", "Егор", "Артем", "Владимир", 
+    "Сергей", "Михаил", "Олег", "Павел", "Антон", 
+    "Василий", "Роман", "Евгений", "Григорий", "Константин"
+]
+
+@secondNames = [
+    "Васильев", "Цветников", "Смирнов", "Иванов", "Петров", 
+    "Соколов", "Михайлов", "Федоров", "Морозов", "Волков", 
+    "Алексеев", "Лебедев", "Семенов", "Егоров", "Павлов", 
+    "Козлов", "Степанов", "Николаев", "Орлов", "Андреев"
+]
 @cities = [
   "Москва",
   "Санкт-Петербург",
@@ -144,7 +157,7 @@ end
 def fill_profiles
   User.all.each do |user|
     profile = user.profile
-    profile.update(description: create_sentence(1, 3), nick_name: create_sentence(1, 2), profile_pic: upload_random_image)
+    profile.update(description: create_sentence(1, 3), nick_name: "#{@firstNames.sample} #{@secondNames.sample}", profile_pic: upload_random_image)
     puts "Profile with id #{profile.id} associated with user id #{user.id}"
   end
 end

@@ -1,6 +1,6 @@
   document.addEventListener("turbo:load", () => {
-    if (document.querySelector('.A_NavProfileMenuToggler') != null) {
-      document.querySelector('.A_NavProfileMenuToggler').addEventListener('click', function() {
+    if (document.querySelector('.A_Dropdown') != null) {
+      document.querySelector('.A_Dropdown').addEventListener('click', function() {
         document.querySelector(".W_navProfileMenu").classList.toggle('activated');
       });      
     }

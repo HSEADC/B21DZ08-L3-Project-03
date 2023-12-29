@@ -1,16 +1,16 @@
 <div id="<%= dom_id profile %>" class="W_Profile">
   <div>
     <% if profile.profile_pic != nil %>
-      <%= image_tag profile.profile_pic, class:"A_Pfp"%>
+      <%= image_tag profile.profile_pic.url, class: "A_Pfp" %>
     <% end %>
   </div>
   <p class="A_ProfileName">
     <%= profile.nick_name %>
   </p>
-  <p>
+  <p class="U_RenderForList">
     <%= profile.description %>
   </p>
-  <p>
+  <p class="U_RenderForList">
     <strong>Локация:</strong>
     <%= profile.location %>
   </p>

@@ -1,22 +1,35 @@
 <p style="color: green"><%= notice %></p>
 <main class="fourColumns">
-  <div class="O_Profile">
-    <% if @profile.profile_pic != nil %>
-      <%= image_tag @profile.profile_pic, class:"A_Pfp"%>
-    <% end %>
-    <p class="A_ProfileName">
-      <%= @profile.nick_name %>
-    </p>
-    <p>
-      <%= @profile.description %>
-    </p>
-    <p>
-      <%= @profile.location %>
-    </p>
-    <%= link_to "Новый пост", new_profile_post_path(@profile), class:"A_ProfileButton" %>
-    <%= link_to "Редактировать профиль", edit_profile_path(@profile), class:"A_ProfileButton" %>
+  <div class="W_ProfileAndButtons">
+    <div class="O_Profile">
+      <% if @profile.profile_pic != nil %>
+        <%= image_tag @profile.profile_pic.url, class:"A_Pfp"%>
+      <% end %>
+      <p class="A_ProfileName">
+        <%= @profile.nick_name %>
+      </p>
+      <div class="C_ProfileLinks">
+        <% if @profile.web_link.present?%>
+          <% @profile.links.each do |link| %>
+            <%= link %>
+          <% end%>
+        <% end%>
+      </div>
+    </div>
+    <div class="C_ProfileMenuButtons">
+      <%= link_to "Добавить карточку", new_profile_post_path(@profile), class:"A_ButtonLink U_Gradient U_NoIcon" %>
+      <%= link_to "Редактировать профиль", edit_profile_path(@profile), class:"A_ButtonLink U_NoIcon" %>
+    </div>
   </div>
-  <div class="W_Posts">
-    <%= render @profile.posts%>
-  </div>
+  <% if @profile.posts.exists? %>
+    <div class="W_Posts">
+      <%= render @profile.posts %>
+    </div>
+  <% else %>
+    <div class="W_NoPosts">
+      <img src="/uploads/sadDeepFace.png" alt="">
+      <p class="">здесь пока только грустный дипфейс...<br>
+        попробуйте добавить карточку в профиль, чтобы развеселить его </p>
+    </div>
+  <% end %>
 </main>

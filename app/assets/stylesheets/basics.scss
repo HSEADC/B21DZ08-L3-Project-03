@@ -61,8 +61,6 @@ button{
     }
 }
 .O_Profile{
-    position: sticky;
-    top: 100px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -71,7 +69,15 @@ button{
     background-color: $lightGray;
     border-radius: 16px;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .A_Pfp{
+        width: 115px;
+        aspect-ratio: 1/1;
+        border-radius: 200px;
+    }
     .A_ProfileButton{
         all: unset;
         font-size: 18px;
@@ -111,6 +117,15 @@ button{
     flex-direction: row;
     gap: 18px;
     align-items: center;
+    border-radius: 12px;
+    max-height: 100%;
+    padding:  6px 18px;
+    &:hover{
+        background-color: $hoverColor;
+    }
+    &:focus{
+        background-color: $hoverColor;
+    }
     .A_Pfp{
         box-sizing: border-box;
         width: 42px;
@@ -162,7 +177,6 @@ button{
     gap: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 .W_Posts{
     width: 100%;
@@ -196,7 +210,7 @@ nav{
     width: var(--bodyWidth);
     max-width: 100%;
     height: $headerHeight;
-    padding: 0 26px;
+    padding: 9px 12px 9px 26px;
     background-color: $lightGray;
     border-radius: 10px;
     box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);    
@@ -430,16 +444,8 @@ li{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
     height: 54px;
-    &:hover{
-        border-radius: 12px;
-        background-color: $hoverColor;
-    }
-    &:focus{
-        border-radius: 12px;
-        background-color: $hoverColor;
-    }
+    padding: 0 0;
 }
 .A_NavProfileMenuToggler{
     height: 10px;
@@ -457,6 +463,57 @@ li{
     right: 0;
     &.activated{
         visibility:visible;
+    }
+}
+.A_Desciptor{
+    font-size:14px;
+}
+.O_LoginForm{
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    top: 50%;
+    transform: translate(-50%, 50%);
+}
+.A_Dropdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+    cursor: pointer;
+    &:hover{
+        background-color: $hoverColor;
+    }
+}
+.O_SignUpForm{
+    display: flex;
+    height: 920px;
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    .O_NewForm{
+        .W_FieldsRow{
+        }
+    }
+}
+.W_FieldsRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    .A_FormLabel{
+        width: 100%;
     }
 }
 .SO_FormNew{
@@ -588,6 +645,26 @@ span{
     height: 24px;
     aspect-ratio: 1/1;
 }
+.W_FormSignUpAdvice{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:68%;
+    p, a{
+        white-space: nowrap;
+        font-size: 18px;
+    }
+    a{
+        cursor: pointer;
+    }
+}
+.A_FakeAvatar{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+}
 .U_RealRadioButton{
     all: unset;
     opacity: 0;
@@ -600,6 +677,15 @@ span{
         background-color: #4FE75D;
     }
 }
+.A_FakeProfilePicture{
+    pointer-events: none;
+    border-radius: 200px;
+    transition: all .2 ease-in-out;
+    cursor: pointer;
+    &:hover{
+        filter: brightness(0.8);
+    }
+}
 .Q_Peak{
     box-sizing: border-box;
 }
@@ -608,7 +694,7 @@ span{
     width: fit-content;
     height: 11px;
     align-self: flex-end;
-    padding-right: 19px;
+    padding-right: 25px;
 }
 .M_navProfileMenuButtons{
     display: flex;
@@ -616,7 +702,7 @@ span{
     width: 315px;
     border-radius: 12px;
     // padding: 12px 18px;
-    padding: 12px 0;
+    padding: 12px 9px;
     background-color: $lightGray;
     overflow: hidden;
     a{
@@ -709,10 +795,36 @@ span{
     }
     &.U_Gradient{
         font-size: 16px;
+        color: $lightGray;
         background: var(--Gradient-Prior, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));    
         &:hover{
             opacity: 0.5;
         }
+    }
+}
+.C_ProfileMenuButtons{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.W_ProfileAndButtons{
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    height: fit-content;
+}
+.W_NoPosts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    padding: 100px;
+    p{
+        text-align: center;
     }
 }
 .M_VacancyCompanyInfoMenu{
@@ -735,6 +847,10 @@ span{
     &.U_Openning{
         gap: 60px;
     }
+}
+.A_FormTitle{
+    font-size: 52px;
+    font-weight: 400;
 }
 .O_VacancyPageInfo{
     display: flex;
@@ -802,6 +918,11 @@ span{
         background-color: $hoverColorWhite;
 
     }
+}
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .A_BannerLinkTitle{
     color: black;
@@ -970,6 +1091,67 @@ p{
             background: var(--Gradient, linear-gradient(111deg, #4FE75D 0%, #47E8CE 100%));        }
     }
 }
+.SO_VacanciesAndButton{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.C_Profiles{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    .W_Profile{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: $lightGray;
+        padding: 12px 18px;
+        border-radius: 12px;
+        width: 100%;
+        .profileCard{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .U_RenderForList{
+            display: none;
+        }
+        .A_ProfileButton{
+            background-color: white;
+            color: $lightGray;
+            display: flex;
+            flex-direction: row;
+            width: 200px;
+            justify-content: space-between;
+            height: 20px;
+            padding: 10px 20px;
+            align-items: center;
+            border-radius: 12px;
+        }
+    }
+}
+.A_Enter{
+    padding-right: 12px;
+}
+.C_AdminNavLinks{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.A_FileInput{
+    aspect-ratio: 1/1;
+    width: 138px;
+    height: 138px;
+    border-radius: 200px;
+    &.U_RealRadioButton{
+        height: 230px;
+        cursor: pointer;
+        width: 230px;
+    }
+}
+
 .section{
     width: 100%;
     margin: 57px 0 57px;
