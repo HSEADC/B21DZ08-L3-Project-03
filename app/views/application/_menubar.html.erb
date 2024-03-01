@@ -1,45 +1,63 @@
 <nav>
-  <div class="Logo">
-    <img src="/uploads/deepface.svg" alt="">
-    <p>adc оффер</p>
+  <div class="W_NavRow">
+    <div class="Logo">
+      <img src="/uploads/deepface.svg" alt="">
+      <p>adc оффер</p>
+    </div>
+    <div class="Logo MobileLogo">
+      <img src="/uploads/AdcTextLogo.svg" alt="">
+    </div>
+    <div class="nav_links">
+      <%= link_to "лента", feed_path %>
+      <%= link_to "вакансии", employment_opportunities_path %>
+      <%= link_to "о проекте", welcome_about_url %>
+    </div>
+    <% if user_signed_in? && current_user.admin == true %>
+      <div class="C_AdminNavLinks">
+        <%= link_to "Профили", admin_profiles_url %>
+        <%= link_to "Посты", admin_posts_url %>
+        <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
+      </div>
+    <% end %>
+    <% if user_signed_in? && current_user.admin == false%>
+      <div class="W_NavProfileWidget">
+        <%= link_to profile_path(current_user.profile), class: "M_NavProfile" do %>
+          <div><%= "#{current_user.name} #{current_user.surname}" %></div>
+          <img class="A_Pfp" src=<%= "#{current_user.profile.profile_pic}" %> alt="">
+        <% end %>
+        <div class="A_Dropdown">
+          <img class="A_NavProfileMenuToggler" src="/uploads/dropdown.svg" alt="">
+        </div>
+      </div>
+      <div class="W_navProfileMenu">
+        <div class="W_Peak">
+          <img class="Q_Peak" src="/uploads/nouse.svg" alt="">
+        </div>
+        <div class="M_navProfileMenuButtons">
+          <%= link_to "настройки профиля", profile_path(current_user.profile), method: :delete %>
+          <%= link_to "выйти", destroy_user_session_path, method: :delete %>
+        </div>
+      </div>
+    <% else %>
+      <%  if user_signed_in? == false || current_user.admin != true%>
+        <%= link_to "Вход", new_user_session_path, class:"A_Enter"%>
+      <%  end%>
+    <%end %>
+    <div class="O_BurgerMenu">
+      <div class="A_BurgerMenuButton">
+        <span class="menu">
+        </span>
+      </div>
+    </div>
   </div>
-  <div class="nav_links">
+  <div class="W_NavMobileLinks">
     <%= link_to "главная", welcome_index_url %>
-    <%= link_to "о проекте", welcome_about_url %>
+    <%# link_to "о проекте", welcome_about_url %>
     <%= link_to "вакансии", employment_opportunities_path %>
     <a href="https://t.me/adcoffer", target="_blank">канал</a>
-  </div>
-  <% if user_signed_in? && current_user.admin == true %>
-    <div class="C_AdminNavLinks">
-      <%= link_to "Профили", admin_profiles_url %>
-      <%= link_to "Посты", admin_posts_url %>
-      <%= link_to "Выйти", destroy_user_session_path, method: :delete %>
-    <% else %>
-    </div>
-  <% end %>
-  <% if user_signed_in? && current_user.admin == false%>
-    <div class="W_NavProfileWidget">
-      <%= link_to profile_path(current_user.profile), class: "M_NavProfile" do %>
-        <div><%= "#{current_user.name} #{current_user.surname}" %></div>
-        <img class="A_Pfp" src=<%= "#{current_user.profile.profile_pic}" %> alt="">
-      <% end %>
-      <div class="A_Dropdown">
-        <img class="A_NavProfileMenuToggler" src="/uploads/dropdown.svg" alt="">
-      </div>
-    </div>
-    <div class="W_navProfileMenu">
-      <div class="W_Peak">
-        <img class="Q_Peak" src="/uploads/nouse.svg" alt="">
-      </div>
-      <div class="M_navProfileMenuButtons">
-        <%= link_to "настройки профиля", profile_path(current_user.profile), method: :delete %>
-        <%= link_to "выйти", destroy_user_session_path, method: :delete %>
-      </div>
-    </div>
-  <% else %>
-    <%  if user_signed_in? == false || current_user.admin != true%>
-      <%= link_to "Вход", new_user_session_path, class:"A_Enter"%>
+    <%  if user_signed_in? == false %>
+      <%= link_to "Вход", new_user_session_path, class:"A_ButtonLink U_Gradient U_NoIcon"%>
     <%  end%>
-  <%end %>
+  </div>
 </nav>
 <script></script>

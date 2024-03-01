@@ -1,0 +1,42 @@
+<%= link_to employment_opportunity_path(employmentOpportunity), class: "M_VacancyCard", id: "dom_id employment_opportunity" do %>
+  <div class="C_VacancyInfo" style="width: 300px;">
+    <div class="W_VacancyCardNameAndDate">
+      <p class="A_VacancyCardName">
+        <%= employmentOpportunity.company_name %>
+      </p>
+      <div class="W_DotWithDate">
+        <div class="Q_Dot"></div>
+        <p class="A_VacancyCardDate">
+          <% I18n.with_locale(:ru) do %>
+            <%= time_ago_in_words(employmentOpportunity.created_at) %> назад
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <div class="W_VacancyCardTitleAndLocation">
+      <p class="A_VacancyCardTitle">
+        <%= employmentOpportunity.title %>
+      </p>
+      <p class="A_VacancyCardLocation">
+        <%= "#{employmentOpportunity.location}, #{employmentOpportunity.work_environment}" %>
+      </p>
+    </div>
+  </div>
+  <div class="C_VacancyChips">
+    <% if employmentOpportunity.salary.present? %>
+      <div class="A_VacancyChips">
+        <p>
+          <%=  employmentOpportunity.salary%> ₽
+        </p>
+      </div>
+    <% end%>
+    <div class="A_VacancyChips U_<%= employmentOpportunity.vacancy_type %>">
+      <p>
+        <%= I18n.t("vacancy_types.#{employmentOpportunity.vacancy_type}", locale: :ru) %>
+      </p>
+    </div>
+    <div></div>
+  </div>
+<% end%>
+<% if can? :manage, employmentOpportunity%>
+<% end %>

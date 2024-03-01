@@ -49,6 +49,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 gem 'carrierwave'
 gem 'devise'
+gem 'devise-jwt'
 gem 'cancancan'
 gem 'rack-cors'
 gem 'htmlbeautifier'
@@ -67,6 +68,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "letter_opener"
 end
 
 group :test do

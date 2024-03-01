@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_29_033950) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_01_041239) do
   create_table "employment_opportunities", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -30,6 +30,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_29_033950) do
     t.string "about_link"
     t.text "company_description"
     t.index ["user_id"], name: "index_employment_opportunities_on_user_id"
+  end
+
+  create_table "employment_opportunities_recents", id: false, force: :cascade do |t|
+    t.integer "employment_opportunity_id", null: false
+    t.integer "recent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employment_opportunity_id"], name: "index_eo_recents_on_eo_id"
+    t.index ["recent_id"], name: "index_eo_recents_on_recent_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -57,8 +72,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_29_033950) do
     t.string "web_link"
   end
 
+  create_table "recents", force: :cascade do |t|
+    t.string "recentable_type"
+    t.integer "recentable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "supports", force: :cascade do |t|
+    t.string "email"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,7 +103,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_29_033950) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "surname"
+    t.string "jti", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

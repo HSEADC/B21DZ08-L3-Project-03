@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 $headerHeight: 66px;
+$headerHeight: 66px;
 $lightGray: #1F1F23;
 $hoverColor: #32333A;
 $hoverColorWhite: #e9e9e9;
@@ -16,6 +17,7 @@ $primaryButtonColorHover: #D7D7D7;
 :root {
     --bodyWidth: 1520px;
     --gridColumns: 1fr 1fr 1fr;
+    --headerHeight: 66px;
   }  
 body{
     margin: 0;
@@ -34,7 +36,7 @@ body{
 }
 input {
     all: unset;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl", Helvetica, sans-serif;
 }
 button{
     all: unset;
@@ -81,7 +83,7 @@ button{
     .A_ProfileButton{
         all: unset;
         font-size: 18px;
-        font-family: Suisse Intl;
+        font-family: "Suisse Intl", Helvetica, sans-serif;
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
@@ -94,7 +96,7 @@ button{
         padding: 12px 16px;
         color: $lightGray;
         &:is(button){
-            font-family: Suisse Intl;
+            font-family: "Suisse Intl", Helvetica, sans-serif;
             background-color: red;
             color: white;
         }
@@ -213,7 +215,7 @@ nav{
     padding: 9px 12px 9px 26px;
     background-color: $lightGray;
     border-radius: 10px;
-    box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);    
+    box-shadow: 0px 9px 33px 0px rgba(0, 0, 0, 0.20);
     p, a{
         cursor: pointer;
         font-size: 24px
@@ -221,13 +223,23 @@ nav{
 }
 p, h1, h2, h3, a{
     all: unset;
-    font-family: Suisse Intl !important;
+    font-family: "Suisse Intl", Arial, Helvetica, sans-serif !important;
     color: #fff;
+}
+.W_NavRow{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+.W_NavMobileLinks{
+    display: none;
 }
 .post
 .A_Button{
     cursor: pointer;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl", Helvetica, sans-serif;
     font-size: 24px;
     display: flex;
     flex-direction: column;
@@ -283,6 +295,12 @@ a:visited{
         color: #fff;
         text-wrap: nowrap;
     }
+}
+.O_BurgerMenu{
+    display: none;
+}
+.MobileLogo{
+    display: none;
 }
 .C_Buttons{
     display: flex;
@@ -341,7 +359,7 @@ ul{
 
 li{
     color: #8F8F91;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl", Helvetica, sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -368,7 +386,7 @@ li{
         box-sizing: border-box;
         height: fit-content;
         width: fit-content;
-        font-family: Suisse Intl;
+        font-family: "Suisse Intl", Helvetica, sans-serif;
         font-size: 18px;
         color: white;
     }
@@ -523,7 +541,7 @@ li{
     gap: 16px;
     .A_ButtonLink{
         &:is(button){
-            font-family: Suisse Intl;
+            font-family: "Suisse Intl", Helvetica, sans-serif;
             color: white;
         }
         .U_NoIcon{
@@ -543,6 +561,7 @@ li{
     background-color: $lightGray;
     height: 80%;
     border-radius: 12px;
+    overflow: hidden;
 }
 .A_FormPaddings{
     pointer-events: none;
@@ -594,7 +613,7 @@ li{
     height: 50px;
     border-radius: 12px;
     padding: 12px 21px;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl", Helvetica, sans-serif;
     font-size: 18px;
     line-height: 143%; /* 25.74px */
 }
@@ -603,7 +622,7 @@ li{
 }
 .A_FormLabel{
     color: #FFF;
-font-family: Suisse Intl;
+font-family: "Suisse Intl", Helvetica, sans-serif;
 font-size: 18px;
 font-style: normal;
 font-weight: 400;
@@ -635,6 +654,9 @@ span{
         border: 2px solid $fullTimeBackground;
         .Q_Circle{
             border: 2px solid $fullTimeBackground;
+            .Q_SubCircle{
+                background-color: $fullTimeBackground;
+            }
         }        
     }
 }
@@ -644,6 +666,18 @@ span{
     width: 24px;
     height: 24px;
     aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+}
+.Q_SubCircle{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 60%;
+    aspect-ratio: 1/1;
+    height: 60%;
+    transform: translate(50%, -50%);
+    border-radius: 1000px;
 }
 .W_FormSignUpAdvice{
     display: flex;
@@ -893,12 +927,12 @@ span{
 .W_TelegramBannerContent{
     display: flex;
     flex-direction: column;
-    width: 688px;
+    max-width: 688px;
     gap: 44px;
 }
 .A_BannerTitle{
     color: white;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl", Helvetica, sans-serif;
     font-weight: 900;
     font-size: 60px;
 }
@@ -927,7 +961,7 @@ span{
 .A_BannerLinkTitle{
     color: black;
     font-size: 24px;
-    font-family: Suisse Intl;
+    font-family: "Suisse Intl", Helvetica, sans-serif;
     font-weight: 400;
 }
 .O_Vacancies{
@@ -1064,7 +1098,7 @@ p{
         input{
             all: unset;
             box-sizing: border-box;
-            font-family: Suisse Intl;
+            font-family: "Suisse Intl", Helvetica, sans-serif;
             font-weight: 500;
             font-size: 24px;
             display: flex;
@@ -1080,7 +1114,7 @@ p{
     }
     div:last-of-type{
         input:last-of-type{
-            font-family: Suisse Intl;
+            font-family: "Suisse Intl", Helvetica, sans-serif;
             border-radius: 10px;
             font-weight: 500;
             font-size: 24px;
@@ -1692,6 +1726,128 @@ p{
     .Mobile{
         display: block;
     }
+    nav{
+        padding: 9px 26px 9px;
+        align-items: flex-start;
+        overflow: hidden;
+        .Logo{
+            display: none;
+        }
+        .A_Enter{
+            display: none;
+        }        
+        .nav_links{
+            display: none;
+        }
+        .W_NavProfileWidget{
+            display: none;
+        }
+        .O_BurgerMenu{
+            display: flex;
+            flex-direction: column;
+            width: 100%; height: 100%;
+        }
+        .menu, .menu::before, .menu::after{
+            height: 2px;
+            background-color: white;
+            width: 36px;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            transition: all .15s ease;        
+        }
+        .menu::before{
+            content: '';
+            height: 2px;
+            background-color: white;
+            width: 36px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: -8px;
+            vertical-align: middle;
+            transition: all .15s ease;
+        }
+        .menu::after{
+            content: '';
+            height: 2px;
+            background-color: white;
+            width: 36px;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            vertical-align: middle;
+            transition: all .15s ease;
+        }
+
+        .A_BurgerMenuButton{
+            align-self: flex-end;
+            display: flex;
+            align-items: center;        
+            cursor: pointer;
+            height: calc(var(--headerHeight) - 9px * 2);
+            width: fit-content;
+        }
+        .A_BurgerMenuButton:is(.openDropdown){
+            .menu{
+                background: transparent;
+            }
+            .menu::before{
+                top: 0;
+                transform: rotate(-45deg);
+                transition: .15s ease-in-out;            
+            }
+            .menu::after{
+                top: 0;
+                transform: rotate(45deg);
+                transition: .15s ease-in-out;            
+            }
+
+        }
+        .W_NavMobileLinks{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: calc(var(--headerHeight) + 10px);
+            width: 100%;
+            left: 0%;
+            padding: 0px 26px 0px;
+            align-items: center;
+            a{
+                width: 100%;
+                height: 54px;
+                text-align: center;
+            }
+        }
+        HeaderMenuBtn-icon{
+            background-color: #fff;
+            color: #fff;
+            font-size: 0;
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            left: 0;
+            right: 0;        
+        }
+        .MobileLogo{
+            display: flex;
+            align-items: center;
+            height: calc(var(--headerHeight) - 9px * 2);
+            img{
+                width: 80px;
+                height: 26.36px;
+            }
+        }
+    }
+    nav:is(.open){
+        height: 313px;
+        align-items: flex-start
+    }
+    .M_BurgerMenuLinks{
+        display: flex;
+        flex-direction: column;
+    }
     .section{
         margin: 17px 0 17px;
 
@@ -1700,7 +1856,7 @@ p{
         flex-direction: column;
         div:last-of-type{
             input:last-of-type{
-                font-family: Suisse Intl;
+                font-family: "Suisse Intl", Helvetica, sans-serif;
                 border-radius: 10px;
                 font-weight: 500;
                 font-size: 20px;
@@ -1950,4 +2106,13 @@ p{
                 width: 334px;
         } 
         }
+}
+@media all and (max-width: 796px) {
+    :root {
+        --bodyWidth: calc(100% - 20px * 2);
+      }      
+    nav{
+    }
+    body{
+    }
 }

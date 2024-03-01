@@ -38,7 +38,7 @@ class EmploymentOpportunitiesController < ApplicationController
           render :edit
         end
       end
-            def employment_opportunity_params
+      def employment_opportunity_params
         params.require(:employment_opportunity).permit(:title, :description, :vacancy_type, :status, :application_deadline, :location, :company_name, :work_environment, :salary, :requirements, :conditions, :contact_link, :about_link)
       end
           

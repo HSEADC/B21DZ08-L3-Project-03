@@ -188,10 +188,10 @@ def create_users
   end
 def create_posts(x, y)
     user = User.all.sample
-    Profile.all.each do |profile|
+    User.all.each do |user|
       (x..y).to_a.sample.times do
-          post = Post.create(profile_id: profile.id, description: create_sentence(2, 5), post_title: create_sentence(1, 1), pic: upload_random_image,user_id: user.id)
-          puts "Post with id #{post.id} associated with profile id #{post.profile.id}"
+          post = Post.create(description: create_sentence(2, 5), post_title: create_sentence(1, 1), pic: upload_random_image,user_id: user.id)
+          puts "Post with id #{post.id} associated with profile id #{post.user.id}"
       end
     end
 end

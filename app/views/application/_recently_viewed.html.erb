@@ -1,0 +1,7 @@
+<div class="O_Inset">
+  <h3>Недавно просмотренные вакансии:</h3>
+  <%# current_user.recents.last.employment_opportunities.count %>
+  <div style="display: flex; flex-directon: row; overflow: scroll; width: 100%; gap: 24px;">
+    <%= render partial: "feeds/employmentOpportunity", collection: current_user.recents.last.employment_opportunities, as: :employmentOpportunity %>
+  </div>
+</div>

@@ -4,6 +4,12 @@
         document.querySelector(".W_navProfileMenu").classList.toggle('activated');
       });      
     }
+    if (document.querySelector('.A_BurgerMenuButton') != null) {
+      document.querySelector('.A_BurgerMenuButton').addEventListener('click', function() {
+        document.querySelector(".A_BurgerMenuButton").classList.toggle('openDropdown');
+        document.querySelector("nav").classList.toggle('open');
+      });      
+    }
     if (document.querySelectorAll('.U_RealRadioButton') != null) {
       document.querySelectorAll('.A_RadioButton').forEach(element => {
         element.addEventListener('click', function() {

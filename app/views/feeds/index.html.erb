@@ -1,0 +1,13 @@
+<div class="SO_Vacancies">
+  <div class="O_Posts">
+    <% @posts.limit(10).each do |post| %>
+      <%= render post %>
+    <%  end %>
+  </div>
+  <%= render 'recently_viewed' %>
+  <div class="O_Posts">
+    <% @posts.offset(10).each do |post| %>
+      <%= render post %>
+    <%  end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<%= form_with(model: support, url: support_request_support_path, class:"O_NewForm") do |form| %>
+  <% if support.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(support.errors.count, "error") %> prohibited this support from being saved:</h2>
+      <ul>
+        <% support.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="W_FormSection">
+    <div>
+      <p class="A_FormLabel">Ваша почта<span>*</span></p>
+      <%= form.text_field :email, class:"A_Input" %>
+    </div>
+    <div>
+      <p class="A_FormLabel">Описание</p>
+      <%= form.text_area :comment, class: 'A_Input A_TextArea' %>
+    </div>
+  </div>
+  <div>
+    <%= form.submit "Сохранить", class:'A_ButtonLink U_Gradient U_NoIcon' %>
+  </div>
+<% end %>

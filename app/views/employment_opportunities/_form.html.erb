@@ -14,17 +14,23 @@
     <div class="W_FormRadio">
       <p class="A_FormLabel">Тип вакансии <span>*</span></p>
       <div class="A_Input A_RadioButton">
-        <div class="Q_Circle"></div>
+        <div class="Q_Circle">
+          <div class="Q_SubCircle"></div>
+        </div>
         <%= form.label :vacancy_type_full_time, 'Фултайм' %>
         <%= form.radio_button :vacancy_type, 'full-time', id: :vacancy_type_full_time, class:"U_RealRadioButton" %>
       </div>
       <div class="A_Input A_RadioButton">
-        <div class="Q_Circle"></div>
+        <div class="Q_Circle">
+          <div class="Q_SubCircle"></div>
+        </div>
         <%= form.label :vacancy_type_part_time, 'Парт-тайм' %>
         <%= form.radio_button :vacancy_type, 'part-time', id: :vacancy_type_part_time, class:"U_RealRadioButton" %>
       </div>
       <div class="A_Input A_RadioButton">
-        <div class="Q_Circle"></div>
+        <div class="Q_Circle">
+          <div class="Q_SubCircle"></div>
+        </div>
         <%= form.label :vacancy_type_intern, 'Стажировка' %>
         <%= form.radio_button :vacancy_type, 'intern', id: :vacancy_type_intern, class:"U_RealRadioButton" %>
       </div>
@@ -41,22 +47,30 @@
               <div class="W_FormRadio">
                 <p class="A_FormLabel">Какой формат работы? <span>*</span></p>
                 <div class="A_Input A_RadioButton">
-                  <div class="Q_Circle"></div>
+                  <div class="Q_Circle">
+                    <div class="Q_SubCircle"></div>
+                  </div>
                   <%= form.label :vacancy_type_full_time, 'Удаленно' %>
                   <%= form.radio_button :work_environment, 'удаленно', id: :vacancy_type_full_time, class:"U_RealRadioButton" %>
                 </div>
                 <div class="A_Input A_RadioButton">
-                  <div class="Q_Circle"></div>
+                  <div class="Q_Circle">
+                    <div class="Q_SubCircle"></div>
+                  </div>
                   <%= form.label :vacancy_type_part_time, 'Офис' %>
                   <%= form.radio_button :work_environment, 'офис', id: :vacancy_type_part_time, class:"U_RealRadioButton" %>
                 </div>
                 <div class="A_Input A_RadioButton">
-                  <div class="Q_Circle"></div>
+                  <div class="Q_Circle">
+                    <div class="Q_SubCircle"></div>
+                  </div>
                   <%= form.label :vacancy_type_intern, 'Удаленно или офис' %>
                   <%= form.radio_button :work_environment, 'удаленно или офис', id: :vacancy_type_intern, class:"U_RealRadioButton" %>
                 </div>
                 <div class="A_Input A_RadioButton">
-                  <div class="Q_Circle"></div>
+                  <div class="Q_Circle">
+                    <div class="Q_SubCircle"></div>
+                  </div>
                   <%= form.label :vacancy_type_intern, 'Гибрид' %>
                   <%= form.radio_button :work_environment, 'гибрид', id: :vacancy_type_intern, class:"U_RealRadioButton" %>
                 </div>

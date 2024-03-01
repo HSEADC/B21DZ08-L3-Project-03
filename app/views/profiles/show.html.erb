@@ -17,13 +17,13 @@
       </div>
     </div>
     <div class="C_ProfileMenuButtons">
-      <%= link_to "Добавить карточку", new_profile_post_path(@profile), class:"A_ButtonLink U_Gradient U_NoIcon" %>
+      <%= link_to "Добавить карточку", new_post_path(@profile), class:"A_ButtonLink U_Gradient U_NoIcon" %>
       <%= link_to "Редактировать профиль", edit_profile_path(@profile), class:"A_ButtonLink U_NoIcon" %>
     </div>
   </div>
-  <% if @profile.posts.exists? %>
+  <% if @profile.user.posts.exists? %>
     <div class="W_Posts">
-      <%= render @profile.posts %>
+      <%= render @profile.user.posts %>
     </div>
   <% else %>
     <div class="W_NoPosts">
